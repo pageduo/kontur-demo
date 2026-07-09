@@ -1,11 +1,12 @@
-// Läuft als schmales, gekipptes Schriftband quer über ein Bild — der
-// Textstreifen wird einmal dupliziert und per CSS-Keyframe (globals.css,
+// Läuft als schmales, gerades Schriftband über die volle Viewport-Breite (via
+// left-1/2 + w-screen "bleed" aus dem begrenzten Elternlayout ausgebrochen) —
+// der Textstreifen wird einmal dupliziert und per CSS-Keyframe (globals.css,
 // .animate-marquee) endlos nach links verschoben, sodass keine Lücke entsteht.
 export default function Marquee({ text, repeat = 6 }: { text: string; repeat?: number }) {
   const items = Array.from({ length: repeat });
 
   return (
-    <div className="pointer-events-none absolute inset-x-0 top-1/2 z-10 -translate-y-1/2 -rotate-2 overflow-hidden border-y border-paper/70 py-3 mix-blend-difference">
+    <div className="pointer-events-none relative left-1/2 z-10 w-screen -translate-x-1/2 overflow-hidden border-y border-paper/70 py-3 mix-blend-difference">
       <div className="flex w-max animate-marquee">
         {[0, 1].map((dup) => (
           <div key={dup} className="font-label flex shrink-0 items-center">

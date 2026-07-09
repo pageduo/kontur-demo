@@ -7,7 +7,7 @@ import { img } from "@/lib/images";
 
 export default function Manifesto() {
   return (
-    <section className="relative flex min-h-[85svh] w-full items-center overflow-hidden bg-ink py-28">
+    <section className="relative flex min-h-[85svh] w-full flex-col items-center justify-center gap-16 overflow-hidden bg-ink py-28 sm:gap-20">
       <Image
         src={img.manifesto}
         alt="Gestapelte, unbedruckte Kartonverpackungen im Studio"
@@ -16,8 +16,6 @@ export default function Manifesto() {
         className="object-cover opacity-70"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/30 to-ink/80" />
-
-      <Marquee text="Produktdesign — Verpackungsdesign — Branding — Prototyping — " />
 
       <div className="relative z-10 mx-auto max-w-5xl px-5 text-center sm:px-8">
         <motion.p
@@ -49,6 +47,8 @@ export default function Manifesto() {
           Regal genauso überzeugt wie in der Hand.
         </motion.p>
       </div>
+
+      <Marquee text="Produktdesign — Verpackungsdesign — Branding — Prototyping — " />
     </section>
   );
 }

@@ -32,8 +32,8 @@ export const img = {
     produktdesign: unsplash("1763797833968-1283590a1087"),
     verpackung: unsplash("1595246135406-803418233494"),
     branding: unsplash("1652805363265-b8fbf9bbdfac"),
-    prototyping: unsplash("1702863361902-93c51bfbd923"),
-    editorial: unsplash("1634150820663-941c2f47b9b6"),
+    prototyping: unsplash("1707286987464-5b41776410b2"),
+    editorial: unsplash("1772191530787-b9546da02fbc"),
     strategie: unsplash("1532622785990-d2c36a76f5a6"),
   },
 
