@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+:root {
+  --color-ink: #15130f;
+  --color-graphite: #211d17;
+  --color-graphite-light: #322b21;
+  --color-cream: #efe9dc;
+  --color-paper: #faf8f3;
+  --color-mist: #e6e0d2;
+  --color-stone: #6f6759;
+  --color-signal: #2f5dff;
+  --color-signal-light: #7c9cff;
+  --color-signal-dark: #17318c;
+}
+
+@theme inline {
+  --color-ink: var(--color-ink);
+  --color-graphite: var(--color-graphite);
+  --color-graphite-light: var(--color-graphite-light);
+  --color-cream: var(--color-cream);
+  --color-paper: var(--color-paper);
+  --color-mist: var(--color-mist);
+  --color-stone: var(--color-stone);
+  --color-signal: var(--color-signal);
+  --color-signal-light: var(--color-signal-light);
+  --color-signal-dark: var(--color-signal-dark);
+
+  --font-display: var(--font-instrument-serif);
+  --font-label: var(--font-space-grotesk);
+  --font-body: var(--font-inter);
+}
+
+html {
+  /*
+   * Intentionally NOT smooth: the pinned/sticky "Prozess"-Scrolly is several
+   * viewport heights tall; a smooth-scrolled anchor jump through that range
+   * makes the page look frozen for a few seconds. Instant jumps are the
+   * reliable choice here.
+   */
+  scroll-behavior: auto;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 400;
+}
+
+.font-label {
+  font-family: var(--font-label), system-ui, sans-serif;
+}
+
+.font-display-italic {
+  font-family: var(--font-display), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+::selection {
+  background: var(--color-signal);
+  color: var(--color-paper);
+}
+
+.eyebrow {
+  font-family: var(--font-label), system-ui, sans-serif;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 22s linear infinite;
+}
