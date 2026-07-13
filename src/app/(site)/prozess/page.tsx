@@ -6,7 +6,7 @@ import { processSteps } from "@/lib/content";
 import { img } from "@/lib/images";
 
 export const metadata: Metadata = {
-  title: "Prozess — KONTUR Demo",
+  title: "Prozess | KONTUR Demo",
 };
 
 export default function ProzessPage() {

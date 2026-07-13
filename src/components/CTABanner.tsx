@@ -12,7 +12,7 @@ export default function CTABanner() {
             Ein Produkt, das im Regal auffällt?
           </h2>
           <p className="mt-5 text-base leading-relaxed text-paper/85 sm:text-lg">
-            Schreiben Sie uns oder rufen Sie an — wir melden uns in der Regel innerhalb eines
+            Schreiben Sie uns oder rufen Sie an, wir melden uns in der Regel innerhalb eines
             Werktags mit einem ersten Termin.
           </p>
           <div className="mt-9 flex flex-wrap justify-center gap-4">

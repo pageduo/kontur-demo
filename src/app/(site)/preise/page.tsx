@@ -6,7 +6,7 @@ import { pricingTiers } from "@/lib/content";
 import { img } from "@/lib/images";
 
 export const metadata: Metadata = {
-  title: "Preise — KONTUR Demo",
+  title: "Preise | KONTUR Demo",
 };
 
 export default function PreisePage() {
@@ -15,7 +15,7 @@ export default function PreisePage() {
       <PageHero
         eyebrow="// Preise & Pakete"
         title="Transparente Pakete, klares Angebot."
-        subline="Jedes Produkt ist anders — hier finden Sie eine erste Orientierung, das genaue Angebot folgt immer nach einem kostenlosen Erstgespräch."
+        subline="Jedes Produkt ist anders. Hier finden Sie eine erste Orientierung, das genaue Angebot folgt immer nach einem kostenlosen Erstgespräch."
         image={img.preiseHero}
         imageAlt="Verpackungskarton auf einem Studiotisch"
       />

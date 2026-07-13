@@ -4,7 +4,7 @@ import StandorteMap from "@/components/StandorteMap";
 import { img } from "@/lib/images";
 
 export const metadata: Metadata = {
-  title: "Standorte — KONTUR Demo",
+  title: "Standorte | KONTUR Demo",
 };
 
 export default function StandortePage() {
@@ -12,7 +12,7 @@ export default function StandortePage() {
     <>
       <PageHero
         eyebrow="// Einzugsgebiet"
-        title="Zuhause an der Elbe — im Einsatz im ganzen DACH-Raum."
+        title="Zuhause an der Elbe, im Einsatz im ganzen DACH-Raum."
         subline="Wählen Sie einen Standort und laden Sie die interaktive Karte, um sich die Anfahrt anzusehen."
         image={img.standorteHero}
         imageAlt="Backsteingebäude an der Elbe in Hamburg-Altona"

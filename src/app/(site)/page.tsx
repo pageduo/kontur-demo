@@ -9,7 +9,7 @@ import Testimonials from "@/components/Testimonials";
 import CTABanner from "@/components/CTABanner";
 
 export const metadata: Metadata = {
-  title: "KONTUR Studio — Design mit Kante | Demo-Website",
+  title: "KONTUR Studio: Design mit Kante | Demo-Website",
 };
 
 export default function Home() {

@@ -4,7 +4,7 @@ import FAQAccordion from "@/components/FAQAccordion";
 import { img } from "@/lib/images";
 
 export const metadata: Metadata = {
-  title: "FAQ — KONTUR Demo",
+  title: "FAQ | KONTUR Demo",
 };
 
 export default function FAQPage() {

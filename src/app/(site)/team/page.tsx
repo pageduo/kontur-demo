@@ -6,7 +6,7 @@ import { team } from "@/lib/content";
 import { img } from "@/lib/images";
 
 export const metadata: Metadata = {
-  title: "Team — KONTUR Demo",
+  title: "Team | KONTUR Demo",
 };
 
 export default function TeamPage() {

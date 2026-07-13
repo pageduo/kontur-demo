@@ -6,7 +6,7 @@ import { company, jobs } from "@/lib/content";
 import { img } from "@/lib/images";
 
 export const metadata: Metadata = {
-  title: "Karriere — KONTUR Demo",
+  title: "Karriere | KONTUR Demo",
 };
 
 export default function KarrierePage() {
@@ -37,7 +37,7 @@ export default function KarrierePage() {
               <p className="mt-4 max-w-md text-base leading-relaxed text-stone">
                 Bei {company.name} arbeiten Sie in kleinen Teams mit erfahrenen Kolleg:innen, einer
                 eigenen Modellbau-Werkstatt und Kund:innen, die Gestaltung ernst nehmen. Ob
-                Berufseinstieg oder Praktikum — wir bilden aus, statt nur einzustellen.
+                Berufseinstieg oder Praktikum: Wir bilden aus, statt nur einzustellen.
               </p>
             </div>
           </Reveal>

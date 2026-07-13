@@ -6,7 +6,7 @@ export const company = {
   claim: "Design mit Kante.",
   subline:
     "Produkt-, Verpackungs- und Markendesign für Unternehmen, die im Regal auffallen und in der Hand überzeugen wollen.",
-  usp: "Strategie, Gestaltung und Prototyping unter einem Dach — vom ersten Skizzenstrich bis zur serienreifen Verpackung.",
+  usp: "Strategie, Gestaltung und Prototyping unter einem Dach, vom ersten Skizzenstrich bis zur serienreifen Verpackung.",
   phone: "+49 40 555 891 30",
   phoneHref: "tel:+494055589130",
   email: "studio@kontur-demo.de",
@@ -50,7 +50,7 @@ export const services = [
     key: "produktdesign",
     title: "Produktdesign",
     description:
-      "Formfindung, Ergonomie und Materialwahl für Produkte, die auf den ersten Griff überzeugen — von der Konzeptskizze bis zur Serienzeichnung.",
+      "Formfindung, Ergonomie und Materialwahl für Produkte, die auf den ersten Griff überzeugen, von der Konzeptskizze bis zur Serienzeichnung.",
   },
   {
     key: "verpackung",
@@ -68,7 +68,7 @@ export const services = [
     key: "prototyping",
     title: "Prototyping & Modellbau",
     description:
-      "3D-Druck, Handmuster und Serienvorbereitung in unserer eigenen Werkstatt — greifbar, bevor produziert wird.",
+      "3D-Druck, Handmuster und Serienvorbereitung in unserer eigenen Werkstatt, greifbar, bevor produziert wird.",
   },
   {
     key: "editorial",
@@ -80,7 +80,7 @@ export const services = [
     key: "strategie",
     title: "Strategie & Beratung",
     description:
-      "Marktanalyse, Positionierung und Workshops — für Entscheidungen, die vor dem ersten Entwurf getroffen werden müssen.",
+      "Marktanalyse, Positionierung und Workshops, für Entscheidungen, die vor dem ersten Entwurf getroffen werden müssen.",
   },
 ] as const;
 
@@ -185,7 +185,7 @@ export const pricingTiers = [
     title: "Sprint",
     price: "ab 4.900 €",
     description:
-      "Ein fokussierter Verpackungs- oder Etikettenrefresh in zwei bis drei Wochen — ideal für einzelne Produkte oder kleine Sortimente.",
+      "Ein fokussierter Verpackungs- oder Etikettenrefresh in zwei bis drei Wochen, ideal für einzelne Produkte oder kleine Sortimente.",
     features: ["Moodboard & 2 Entwurfsrichtungen", "Ein Korrekturlauf inklusive", "Druckfertige Reinzeichnung"],
     highlighted: false,
   },
@@ -201,7 +201,7 @@ export const pricingTiers = [
     title: "Partnerschaft",
     price: "auf Anfrage",
     description:
-      "Laufende Zusammenarbeit als ausgelagertes Design-Team — für Marken mit regelmäßigem Sortiments- und Kampagnenbedarf.",
+      "Laufende Zusammenarbeit als ausgelagertes Design-Team, für Marken mit regelmäßigem Sortiments- und Kampagnenbedarf.",
     features: ["Fester Ansprechpartner im Studio", "Priorisierte Kapazität", "Quartalsweise Markenreview"],
     highlighted: false,
   },
@@ -218,7 +218,7 @@ export const team = [
     key: "jonte",
     name: "Jonte Reimers",
     role: "Leitung Produktdesign",
-    bio: "Verantwortet Formfindung und CMF-Konzepte — vom ersten Sketch bis zur technischen Konstruktion.",
+    bio: "Verantwortet Formfindung und CMF-Konzepte, vom ersten Sketch bis zur technischen Konstruktion.",
   },
   {
     key: "nadja",
@@ -236,7 +236,7 @@ export const team = [
     key: "solveig",
     name: "Solveig Brandt",
     role: "Prototyping & Modellbau",
-    bio: "Baut Handmuster und 3D-Drucke in der studioeigenen Werkstatt — bevor produziert wird.",
+    bio: "Baut Handmuster und 3D-Drucke in der studioeigenen Werkstatt, bevor produziert wird.",
   },
   {
     key: "timo",
@@ -255,7 +255,7 @@ export const testimonials = [
   },
   {
     quote:
-      "Das Studio denkt Produktion und Logistik von Anfang an mit — keine bösen Überraschungen kurz vor dem Rollout.",
+      "Das Studio denkt Produktion und Logistik von Anfang an mit, keine bösen Überraschungen kurz vor dem Rollout.",
     name: "T. Marquardt",
     context: "Category Manager, Feld & Flur",
   },
@@ -281,7 +281,7 @@ export const faqs = [
   {
     question: "Bauen Sie auch physische Prototypen?",
     answer:
-      "Ja, in unserer eigenen Werkstatt entstehen 3D-Drucke und Handmuster — so lässt sich jedes Design anfassen, bevor produziert wird.",
+      "Ja, in unserer eigenen Werkstatt entstehen 3D-Drucke und Handmuster, so lässt sich jedes Design anfassen, bevor produziert wird.",
   },
   {
     question: "Arbeiten Sie auch mit kleinen Marken und Start-ups?",
@@ -291,7 +291,7 @@ export const faqs = [
   {
     question: "Wem gehören die Design-Rechte nach Projektabschluss?",
     answer:
-      "Nach vollständiger Bezahlung gehen alle Nutzungsrechte am finalen Design vollständig auf Sie über — das regeln wir transparent im Angebot.",
+      "Nach vollständiger Bezahlung gehen alle Nutzungsrechte am finalen Design vollständig auf Sie über. Das regeln wir transparent im Angebot.",
   },
   {
     question: "Denken Sie Nachhaltigkeit bei Verpackungen mit?",
@@ -317,7 +317,7 @@ export const jobs = [
     title: "Praktikum Industrial Design",
     type: "Praktikum",
     description:
-      "Sechsmonatiges Praktikum mit Einblick in Konzept, Prototyping und Modellbau — ideal parallel zum Studium.",
+      "Sechsmonatiges Praktikum mit Einblick in Konzept, Prototyping und Modellbau, ideal parallel zum Studium.",
   },
 ] as const;
 
@@ -328,7 +328,7 @@ export const locations = [
     isMain: true,
     mapQuery: "Große Elbstraße 145, 22767 Hamburg",
     description:
-      "Unser Hauptsitz mit Gestaltungsateliers, Materialbibliothek und Kundenlounge liegt direkt an der Elbe — hier laufen alle Projekte zusammen.",
+      "Unser Hauptsitz mit Gestaltungsateliers, Materialbibliothek und Kundenlounge liegt direkt an der Elbe. Hier laufen alle Projekte zusammen.",
   },
   {
     name: "Modellbau-Werkstatt Bahrenfeld",
@@ -336,7 +336,7 @@ export const locations = [
     isMain: false,
     mapQuery: "Bahrenfeld, Hamburg",
     description:
-      "3D-Drucker, Fräsen und Handwerkzeug für Prototypen und Handmuster — fußläufig vom Hauptstudio entfernt.",
+      "3D-Drucker, Fräsen und Handwerkzeug für Prototypen und Handmuster, fußläufig vom Hauptstudio entfernt.",
   },
   {
     name: "Studio Berlin",

@@ -8,7 +8,7 @@ import { company, locations } from "@/lib/content";
 import { img } from "@/lib/images";
 
 export const metadata: Metadata = {
-  title: "Über uns & Kontakt — KONTUR Demo",
+  title: "Über uns & Kontakt | KONTUR Demo",
 };
 
 export default function KontaktPage() {
@@ -18,7 +18,7 @@ export default function KontaktPage() {
     <>
       <PageHero
         eyebrow="// Über uns & Kontakt"
-        title={`${company.fullName} — seit ${company.founded} in ${company.city} verwurzelt.`}
+        title={`${company.fullName}, seit ${company.founded} in ${company.city} verwurzelt.`}
         subline={company.subline}
       />
 
@@ -38,7 +38,7 @@ export default function KontaktPage() {
               <p className="text-base leading-relaxed text-stone">
                 {company.usp} Was {company.founded} als kleines Ein-Personen-Atelier begann, ist
                 heute ein neunköpfiges Team aus Produktdesigner:innen, Grafiker:innen und
-                Modellbauer:innen. Geblieben ist der Anspruch: jedes Produkt soll auffallen — aus
+                Modellbauer:innen. Geblieben ist der Anspruch: jedes Produkt soll auffallen, aus
                 den richtigen Gründen.
               </p>
 

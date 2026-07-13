@@ -7,7 +7,7 @@ import { services } from "@/lib/content";
 import { img } from "@/lib/images";
 
 export const metadata: Metadata = {
-  title: "Leistungen — KONTUR Demo",
+  title: "Leistungen | KONTUR Demo",
 };
 
 const serviceImages: Record<string, string> = {

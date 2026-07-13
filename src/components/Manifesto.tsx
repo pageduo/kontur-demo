@@ -48,7 +48,7 @@ export default function Manifesto() {
         </motion.p>
       </div>
 
-      <Marquee text="Produktdesign — Verpackungsdesign — Branding — Prototyping — " />
+      <Marquee text="Produktdesign · Verpackungsdesign · Branding · Prototyping · " />
     </section>
   );
 }

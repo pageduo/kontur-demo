@@ -4,7 +4,7 @@ import GalleryGrid from "@/components/GalleryGrid";
 import { img } from "@/lib/images";
 
 export const metadata: Metadata = {
-  title: "Referenzen — KONTUR Demo",
+  title: "Referenzen | KONTUR Demo",
 };
 
 export default function ReferenzenPage() {
@@ -13,7 +13,7 @@ export default function ReferenzenPage() {
       <PageHero
         eyebrow="// Referenzen"
         title="Ausgewählte Projekte für Marken, die auffallen wollen."
-        subline="Von der Kaffeetüte bis zur Küchenmaschine — ein Einblick in unsere Arbeit für Food-, Kosmetik- und Lifestyle-Marken."
+        subline="Von der Kaffeetüte bis zur Küchenmaschine: ein Einblick in unsere Arbeit für Food-, Kosmetik- und Lifestyle-Marken."
         image={img.referenzenHero}
         imageAlt="Verpackungen ordentlich im Regal aufgereiht"
       />
