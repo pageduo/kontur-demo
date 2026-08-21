@@ -1,75 +1,82 @@
 import Link from "next/link";
-import { company, navPages } from "@/lib/content";
+import { company } from "@/lib/content";
+import { overlayPages } from "@/lib/sections";
 
+/*
+ * Footer als Fortsetzung der schwarzen Kontaktfläche. Die Wortmarke steht ein
+ * letztes Mal groß — im System ist die Typografie die Signatur, nicht ein Logo.
+ */
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
     <footer className="bg-ink text-paper">
-      <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
-        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
-          <div>
-            <p className="font-label text-xl font-semibold">
-              {company.name}
-              <span className="text-signal-light">.</span>
-            </p>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-paper/60">{company.subline}</p>
-            <div className="font-label mt-6 flex gap-4 text-sm text-paper/60">
+      <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
+        <div className="grid grid-cols-12 gap-x-5 gap-y-12 border-t border-paper/25 py-16">
+          <div className="col-span-12 lg:col-span-5">
+            <p className="t-body max-w-[34ch] text-paper/70">{company.subline}</p>
+            <div className="mt-8 flex flex-wrap gap-2">
               {company.social.map((s) => (
-                <span key={s.label} title="Demo-Website ohne echtes Social-Media-Profil">
+                <span
+                  key={s.label}
+                  title="Demo-Website ohne echtes Social-Media-Profil"
+                  className="pill pill-sm pill-invert cursor-default opacity-60"
+                >
                   {s.label}
                 </span>
               ))}
             </div>
           </div>
 
-          <div>
-            <p className="eyebrow mb-4 text-paper/40">Sitemap</p>
-            <ul className="flex flex-col gap-2 text-sm">
-              {navPages.map((p) => (
+          <nav className="col-span-6 lg:col-span-3" aria-label="Sitemap">
+            <p className="eyebrow mb-5 text-paper/60">Seiten</p>
+            <ul className="flex flex-col">
+              {overlayPages.map((p) => (
                 <li key={p.href}>
-                  <Link href={p.href} className="text-paper/70 hover:text-paper">
+                  <Link href={p.href} className="t-body-sm ulink block py-2 text-paper/75">
                     {p.label}
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
-          <div>
-            <p className="eyebrow mb-4 text-paper/40">Kontakt</p>
-            <ul className="flex flex-col gap-2 text-sm text-paper/70">
-              <li>
-                {company.address.street}, {company.address.zip} {company.address.city}
+          <div className="col-span-6 lg:col-span-2">
+            <p className="eyebrow mb-5 text-paper/60">Kontakt</p>
+            <ul className="flex flex-col text-paper/75">
+              <li className="t-body-sm">
+                {company.address.street}
+                <br />
+                {company.address.zip} {company.address.city}
               </li>
               <li>
-                <a href={company.phoneHref} className="hover:text-paper">
+                <a href={company.phoneHref} className="t-body-sm ulink block py-2">
                   {company.phone}
                 </a>
               </li>
               <li>
-                <a href={`mailto:${company.email}`} className="hover:text-paper">
+                <a href={`mailto:${company.email}`} className="t-body-sm ulink block break-all py-2">
                   {company.email}
                 </a>
               </li>
             </ul>
           </div>
 
-          <div>
-            <p className="eyebrow mb-4 text-paper/40">Rechtliches</p>
-            <ul className="flex flex-col gap-2 text-sm">
+          <div className="col-span-12 lg:col-span-2">
+            <p className="eyebrow mb-5 text-paper/60">Rechtliches</p>
+            <ul className="flex flex-col">
               <li>
-                <Link href="/impressum" className="text-paper/70 hover:text-paper">
+                <Link href="/impressum" className="t-body-sm ulink block py-2 text-paper/75">
                   Impressum
                 </Link>
               </li>
               <li>
-                <Link href="/datenschutz" className="text-paper/70 hover:text-paper">
+                <Link href="/datenschutz" className="t-body-sm ulink block py-2 text-paper/75">
                   Datenschutz
                 </Link>
               </li>
               <li>
-                <a href="/datenschutz#cookies" className="text-paper/70 hover:text-paper">
+                <a href="/datenschutz#cookies" className="t-body-sm ulink block py-2 text-paper/75">
                   Cookie-Einstellungen
                 </a>
               </li>
@@ -77,12 +84,21 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-2 border-t border-paper/10 pt-8 text-xs text-paper/40 sm:flex-row sm:items-center sm:justify-between">
-          <p>
+        {/* Wortmarke als Abschluss, randlos über die Spaltenbreite */}
+        <div aria-hidden className="overflow-hidden pb-8">
+          <span className="t-display block whitespace-nowrap text-[clamp(3rem,15vw,190px)] leading-[0.85] text-paper/15">
+            KONTUR
+          </span>
+        </div>
+
+        <div className="flex flex-col gap-3 border-t border-paper/25 py-7 sm:flex-row sm:items-center sm:justify-between">
+          <p className="t-caption text-paper/50">
             © {year} {company.fullName}
           </p>
-          <p>Demo-Vorlage für Akquisezwecke, kein echtes Unternehmen, keine echten Leistungen.</p>
-          <a href="/api/auth/logout" className="hover:text-paper/70">
+          <p className="t-caption text-paper/50">
+            Demo-Vorlage für Akquisezwecke &middot; kein echtes Unternehmen
+          </p>
+          <a href="/api/auth/logout" className="t-caption ulink text-paper/50">
             Abmelden
           </a>
         </div>

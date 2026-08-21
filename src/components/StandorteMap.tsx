@@ -14,7 +14,7 @@ export default function StandorteMap() {
   return (
     <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1fr]">
       <div className="flex flex-col gap-6">
-        <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-graphite-light">
+        <div className="relative aspect-[4/3] overflow-hidden bg-graphite-light">
           <AnimatePresence mode="sync">
             <motion.div
               key={active}
@@ -38,10 +38,10 @@ export default function StandorteMap() {
           <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6">
             <div>
               <span className="eyebrow text-signal-light">{current.area}</span>
-              <p className="mt-1 font-display text-xl text-paper">{current.name}</p>
+              <p className="mt-1 t-subheading text-paper">{current.name}</p>
             </div>
             {current.isMain && (
-              <span className="font-label shrink-0 rounded-full bg-signal px-3 py-1 text-xs font-semibold text-paper">
+              <span className="t-caption shrink-0 rounded-[500px] border border-paper px-3 py-1">
                 Hauptsitz
               </span>
             )}
@@ -53,16 +53,16 @@ export default function StandorteMap() {
             <button
               key={loc.name}
               onClick={() => setActive(i)}
-              className={`flex items-center justify-between rounded-2xl border px-5 py-4 text-left transition ${
+              className={`flex items-center justify-between border px-5 py-4 text-left transition ${
                 active === i ? "border-signal bg-cream" : "border-ink/10 hover:border-ink/25"
               }`}
             >
               <span>
-                <span className="block font-display text-base text-ink">{loc.name}</span>
+                <span className="block t-body text-ink">{loc.name}</span>
                 <span className="text-xs text-stone">{loc.area}</span>
               </span>
               {loc.isMain && (
-                <span className="rounded-full bg-signal px-3 py-1 text-xs font-semibold text-paper">
+                <span className="t-caption rounded-[500px] border border-ink px-3 py-1">
                   Hauptsitz
                 </span>
               )}

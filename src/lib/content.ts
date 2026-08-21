@@ -23,21 +23,6 @@ export const company = {
   social: [{ label: "Instagram" }, { label: "Behance" }, { label: "LinkedIn" }],
 };
 
-export const navPages = [
-  { href: "/", label: "Start", number: "01" },
-  { href: "/leistungen", label: "Leistungen", number: "02" },
-  { href: "/referenzen", label: "Referenzen", number: "03" },
-  { href: "/prozess", label: "Prozess", number: "04" },
-  { href: "/team", label: "Team", number: "05" },
-  { href: "/preise", label: "Preise", number: "06" },
-  { href: "/faq", label: "FAQ", number: "07" },
-  { href: "/karriere", label: "Karriere", number: "08" },
-  { href: "/standorte", label: "Standorte", number: "09" },
-  { href: "/kontakt", label: "Kontakt", number: "10" },
-] as const;
-
-export const primaryNavHrefs = ["/", "/leistungen", "/referenzen", "/team", "/kontakt"];
-
 export const stats = [
   { value: 12, suffix: "", label: "Jahre Studio-Erfahrung" },
   { value: 210, suffix: "+", label: "realisierte Projekte" },

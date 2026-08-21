@@ -27,24 +27,24 @@ export default async function LoginPage({
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-graphite px-5">
-      <div className="w-full max-w-sm rounded-3xl bg-graphite-light p-8 text-center sm:p-10">
-        <p className="font-display text-2xl font-semibold text-paper">
+      <div className="w-full max-w-sm bg-graphite-light p-8 text-center sm:p-10">
+        <p className="t-subheading font-semibold text-paper">
           {company.name}
           <span className="text-signal-light">.</span>
         </p>
-        <h1 className="mt-6 font-display text-xl font-medium text-paper">Geschützter Bereich</h1>
+        <h1 className="mt-6 t-subheading font-medium text-paper">Geschützter Bereich</h1>
         <p className="mt-3 text-sm leading-relaxed text-paper/60">
           Diese Demo-Website ist nicht öffentlich. Bitte melde dich mit einem freigeschalteten
           Google-Konto an.
         </p>
 
         {message && (
-          <p className="mt-5 rounded-xl bg-ink/40 px-4 py-3 text-sm text-signal-light">{message}</p>
+          <p className="mt-5 bg-ink/40 px-4 py-3 text-sm text-signal-light">{message}</p>
         )}
 
         <a
           href={startUrl}
-          className="mt-8 flex items-center justify-center gap-3 rounded-full bg-signal px-6 py-3.5 text-sm font-semibold text-paper transition hover:bg-signal-light"
+          className="pill pill-invert mt-8 justify-center"
         >
           <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden>
             <path

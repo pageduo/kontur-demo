@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import PageHero from "@/components/PageHero";
 import ContactForm from "@/components/ContactForm";
 import MapEmbed from "@/components/MapEmbed";
+import { Section } from "@/components/Section";
 import { company, locations } from "@/lib/content";
 import { img } from "@/lib/images";
 
 export const metadata: Metadata = {
-  title: "Über uns & Kontakt | KONTUR Demo",
+  title: "Kontakt | KONTUR Demo",
 };
 
 export default function KontaktPage() {
@@ -17,76 +17,73 @@ export default function KontaktPage() {
   return (
     <>
       <PageHero
-        eyebrow="// Über uns & Kontakt"
-        title={`${company.fullName}, seit ${company.founded} in ${company.city} verwurzelt.`}
-        subline={company.subline}
+        eyebrow="Kontakt"
+        number="09"
+        title="Erzählen Sie uns von Ihrem Produkt."
+        subline="Das Erstgespräch ist unverbindlich und kostenfrei. Wir sichten Produkt und Markt und geben eine erste Einschätzung zu Umfang und Investition."
+        image={img.about}
+        imageAlt="Team im Studio bei der Arbeit an Materialproben"
       />
 
-      <section className="bg-cream py-16 sm:py-24">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
-            <Reveal className="flex flex-col gap-8">
-              <div className="relative aspect-[16/10] overflow-hidden rounded-3xl">
-                <Image
-                  src={img.about}
-                  alt="Team im Studio bei der Arbeit an Materialproben"
-                  fill
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="object-cover"
-                />
-              </div>
-              <p className="text-base leading-relaxed text-stone">
-                {company.usp} Was {company.founded} als kleines Ein-Personen-Atelier begann, ist
-                heute ein neunköpfiges Team aus Produktdesigner:innen, Grafiker:innen und
-                Modellbauer:innen. Geblieben ist der Anspruch: jedes Produkt soll auffallen, aus
-                den richtigen Gründen.
-              </p>
+      <Section id="anfrage" label="Anfrage" number="01" tone="paper">
+        <div className="grid grid-cols-12 gap-x-5 gap-y-16">
+          <Reveal className="col-span-12 lg:col-span-7">
+            <ContactForm />
+          </Reveal>
 
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                <div>
-                  <p className="eyebrow mb-2 text-stone">Adresse</p>
-                  <p className="text-sm leading-relaxed text-ink">
-                    {company.address.street}
-                    <br />
-                    {company.address.zip} {company.address.city}
-                  </p>
-                </div>
-                <div>
-                  <p className="eyebrow mb-2 text-stone">Kontakt</p>
-                  <p className="text-sm leading-relaxed text-ink">
-                    <a href={company.phoneHref} className="block hover:text-signal-dark">
-                      {company.phone}
-                    </a>
-                    <a href={`mailto:${company.email}`} className="block hover:text-signal-dark">
-                      {company.email}
-                    </a>
-                  </p>
-                </div>
-                <div className="sm:col-span-2">
-                  <p className="eyebrow mb-2 text-stone">Öffnungszeiten</p>
-                  <ul className="text-sm leading-relaxed text-ink">
-                    {company.hours.map((h) => (
-                      <li key={h.day} className="flex justify-between border-b border-ink/10 py-1.5">
-                        <span className="text-stone">{h.day}</span>
-                        <span>{h.time}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+          <Reveal delay={0.1} className="col-span-12 lg:col-span-4 lg:col-start-9">
+            <div className="flex flex-col gap-10 border-t border-ink pt-10">
+              <div>
+                <p className="eyebrow text-stone">Studio</p>
+                <p className="t-body mt-3">
+                  {company.address.street}
+                  <br />
+                  {company.address.zip} {company.address.city}
+                </p>
               </div>
 
               <div>
-                <p className="eyebrow mb-3 text-stone">Anfahrt</p>
-                <MapEmbed query={mainLocation.mapQuery} title={`Anfahrt zu ${company.fullName}`} />
+                <p className="eyebrow text-stone">Direkt</p>
+                <p className="mt-3 flex flex-col gap-1">
+                  <a href={company.phoneHref} className="t-body ulink">
+                    {company.phone}
+                  </a>
+                  <a href={`mailto:${company.email}`} className="t-body ulink break-all">
+                    {company.email}
+                  </a>
+                </p>
               </div>
-            </Reveal>
 
-            <Reveal delay={0.1}>
-              <ContactForm />
-            </Reveal>
+              <div>
+                <p className="eyebrow text-stone">Zeiten</p>
+                <ul className="mt-3">
+                  {company.hours.map((h) => (
+                    <li
+                      key={h.day}
+                      className="flex justify-between gap-4 border-b border-pewter py-2 last:border-b-0"
+                    >
+                      <span className="t-body-sm text-stone">{h.day}</span>
+                      <span className="t-body-sm">{h.time}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </Section>
+
+      <Section id="anfahrt" label="Anfahrt" number="02" tone="gray">
+        <div className="grid grid-cols-12 gap-x-5 gap-y-8 border-t border-ink pt-10">
+          <div className="col-span-12 lg:col-span-4">
+            <h2 className="t-heading-sm max-w-[14ch]">{mainLocation.name}</h2>
+            <p className="t-body-sm mt-4 max-w-[40ch] text-stone">{mainLocation.description}</p>
+          </div>
+          <div className="col-span-12 lg:col-span-8">
+            <MapEmbed query={mainLocation.mapQuery} title={`Anfahrt zu ${company.fullName}`} />
           </div>
         </div>
-      </section>
+      </Section>
     </>
   );
 }

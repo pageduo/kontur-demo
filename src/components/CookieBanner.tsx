@@ -30,27 +30,22 @@ export default function CookieBanner() {
   if (!visible) return null;
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-[90] px-4 pb-4 sm:px-6">
-      <div className="mx-auto flex max-w-3xl flex-col gap-4 rounded-2xl border border-mist bg-paper/95 p-5 shadow-2xl backdrop-blur sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-sm leading-relaxed text-stone">
+    // Kein Schatten, kein Radius, kein Glaseffekt: ein schwarzes Band, das sich
+    // unten über die Seite legt — im System ist Kontrast die Erhebung.
+    <div className="fixed inset-x-0 bottom-0 z-[90] border-t border-paper/25 bg-ink text-paper">
+      <div className="mx-auto flex max-w-[1400px] flex-col gap-5 px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+        <p className="t-body-sm max-w-[70ch] text-paper/75">
           Diese Demo-Website verwendet nur technisch notwendige Cookies. Für die Kartenanzeige
-          (Google Maps) fragen wir separat Ihre Zustimmung ab.{" "}
-          <Link href="/datenschutz" className="underline underline-offset-2 hover:text-ink">
+          fragen wir separat Ihre Zustimmung ab.{" "}
+          <Link href="/datenschutz" className="ulink text-paper">
             Datenschutzerklärung
           </Link>
-          .
         </p>
-        <div className="flex shrink-0 gap-3">
-          <button
-            onClick={() => decide("declined")}
-            className="rounded-full border border-ink/20 px-4 py-2 text-sm font-medium text-ink transition hover:bg-mist"
-          >
+        <div className="flex shrink-0 gap-2">
+          <button onClick={() => decide("declined")} className="pill pill-sm pill-invert">
             Ablehnen
           </button>
-          <button
-            onClick={() => decide("accepted")}
-            className="rounded-full bg-graphite px-4 py-2 text-sm font-medium text-paper transition hover:bg-ink"
-          >
+          <button onClick={() => decide("accepted")} className="pill pill-sm">
             Akzeptieren
           </button>
         </div>

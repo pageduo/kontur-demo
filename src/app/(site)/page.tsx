@@ -1,28 +1,48 @@
 import type { Metadata } from "next";
 import Hero from "@/components/Hero";
-import StatsCounter from "@/components/StatsCounter";
-import Manifesto from "@/components/Manifesto";
-import HomeServicesTeaser from "@/components/HomeServicesTeaser";
+import Marquee from "@/components/Marquee";
+import StudioSection from "@/components/sections/StudioSection";
+import ServicesSection from "@/components/sections/ServicesSection";
 import ProcessScrolly from "@/components/ProcessScrolly";
-import HomeReferenzenTeaser from "@/components/HomeReferenzenTeaser";
+import WorkSection from "@/components/sections/WorkSection";
 import Testimonials from "@/components/Testimonials";
-import CTABanner from "@/components/CTABanner";
+import TeamSection from "@/components/sections/TeamSection";
+import PricingSection from "@/components/sections/PricingSection";
+import FaqSection from "@/components/sections/FaqSection";
+import ContactSection from "@/components/sections/ContactSection";
 
 export const metadata: Metadata = {
   title: "KONTUR Studio: Design mit Kante | Demo-Website",
 };
 
+/*
+ * Der One-Pager trägt jeden Abschnitt vollwertig. Dieselben Komponenten laufen
+ * auf den Einzelseiten mit variant="page" und zeigen dort die volle Tiefe —
+ * hier die verdichtete Fassung.
+ */
 export default function Home() {
   return (
     <>
       <Hero />
-      <StatsCounter />
-      <Manifesto />
-      <HomeServicesTeaser />
+      <Marquee
+        items={[
+          "Produktdesign",
+          "Verpackungsdesign",
+          "Markenidentität",
+          "Prototyping",
+          "Editorial",
+          "Strategie",
+        ]}
+      />
+      <StudioSection />
+      <ServicesSection />
       <ProcessScrolly />
-      <HomeReferenzenTeaser />
+      <WorkSection />
       <Testimonials />
-      <CTABanner />
+      <TeamSection />
+      <PricingSection />
+      <FaqSection />
+      <ContactSection />
     </>
   );
 }

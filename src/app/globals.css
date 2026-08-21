@@ -1,88 +1,348 @@
 @import "tailwindcss";
 
+/* ==========================================================================
+   KONTUR — Design-System
+   Basis: "Eindhoven Design District" Token-Set (editorial brutalism auf Papier).
+   Eine Grotesk, Schwarz auf Weiß, ein Grauton als Bandwechsel, Rot ausschließlich
+   als redaktionelle Marke — nie als UI-Chrome.
+
+   Die alten Token-Namen (paper/ink/cream/stone/signal/graphite) bleiben als
+   Aliase bestehen und zeigen jetzt auf die neuen Werte. Dadurch übernimmt der
+   gesamte Bestand die Palette, ohne dass jede Utility-Klasse angefasst werden muss.
+   ========================================================================== */
+
 :root {
-  --color-ink: #15130f;
-  --color-graphite: #211d17;
-  --color-graphite-light: #322b21;
-  --color-cream: #efe9dc;
-  --color-paper: #faf8f3;
-  --color-mist: #e6e0d2;
-  --color-stone: #6f6759;
-  --color-signal: #2f5dff;
-  --color-signal-light: #7c9cff;
-  --color-signal-dark: #17318c;
+  /* --- Kernpalette ----------------------------------------------------- */
+  --color-charcoal-ink: #000000;
+  --color-paper-white: #ffffff;
+  --color-newsprint-gray: #e8e8e8;
+  --color-pewter: #bfbfbf;
+  --color-signal-red: #ff0000;
+
+  /* --- Aliase auf die Bestandsnamen ------------------------------------ */
+  --color-ink: #000000;
+  --color-paper: #ffffff;
+  --color-newsprint: #e8e8e8;
+
+  /* Dunkle Flächen: im neuen System reines Schwarz */
+  --color-graphite: #000000;
+  --color-graphite-light: #1a1a1a;
+
+  /* Bandwechsel-Grau (früher warme Cremetöne) */
+  --color-cream: #e8e8e8;
+  --color-mist: #e8e8e8;
+
+  /* Gedämpfter Text. Bewusst NICHT #bfbfbf: Pewter erreicht auf Weiß nur
+     2,2:1 und fällt damit für Fließtext durch WCAG AA. #555 liegt bei 7,4:1
+     und liest sich weiterhin als zurückgenommenes Schwarz, nicht als Grau.
+     #bfbfbf bleibt Linien und Trennern vorbehalten (--color-pewter). */
+  --color-stone: #555555;
+
+  /* "signal" war der blaue CTA-Ton. Im neuen System sind Aktionen schwarz —
+     Rot ist Inhaltsmarke, kein Button. */
+  --color-signal: #000000;
+  --color-signal-light: #ffffff;
+  --color-signal-dark: #000000;
+
+  /* Der rote Akzent, gezielt gesetzt: Kategorielabels, Sektionsnummern,
+     aktiver Punkt der Statusleiste. Sonst nirgends.
+
+     Zwei Werte, ein Akzent — aus Kontrastgründen:
+     #ff0000 erreicht als 14px-Text auf #e8e8e8 nur 3,26:1 und fällt damit
+     durch WCAG AA. Für Flächen und Marken (Raute, Leistenpunkt, Zitatzeichen)
+     bleibt das reine Signalrot; roter *Text* nutzt die minimal abgedunkelte
+     Variante, die auf Weiß und auf #e8e8e8 über 4,5:1 liegt.
+     Auf schwarzem Grund besteht kein Rot die Prüfung — dort werden die
+     Nummern weiß gesetzt und Rot erscheint nur noch als Raute daneben. */
+  --color-accent: #ff0000;
+  --color-accent-ink: #d10000;
 }
 
 @theme inline {
   --color-ink: var(--color-ink);
+  --color-paper: var(--color-paper);
+  --color-newsprint: var(--color-newsprint);
+  --color-pewter: var(--color-pewter);
+  --color-accent: var(--color-accent);
+
   --color-graphite: var(--color-graphite);
   --color-graphite-light: var(--color-graphite-light);
   --color-cream: var(--color-cream);
-  --color-paper: var(--color-paper);
   --color-mist: var(--color-mist);
   --color-stone: var(--color-stone);
   --color-signal: var(--color-signal);
   --color-signal-light: var(--color-signal-light);
   --color-signal-dark: var(--color-signal-dark);
 
-  --font-display: var(--font-instrument-serif);
-  --font-label: var(--font-space-grotesk);
-  --font-body: var(--font-inter);
+  /* Eine einzige Schrift im gesamten System. Alle drei Aliase zeigen darauf,
+     damit font-display / font-label / font-body im Bestand weiterlaufen. */
+  --font-display: var(--font-grotesk);
+  --font-label: var(--font-grotesk);
+  --font-body: var(--font-grotesk);
+
+  --radius-pill: 500px;
 }
+
+/* ==========================================================================
+   Basis
+   ========================================================================== */
 
 html {
   /*
-   * Intentionally NOT smooth: the pinned/sticky "Prozess"-Scrolly is several
-   * viewport heights tall; a smooth-scrolled anchor jump through that range
-   * makes the page look frozen for a few seconds. Instant jumps are the
-   * reliable choice here.
+   * Bewusst NICHT smooth: der gepinnte Prozess-Scrolly ist mehrere
+   * Viewport-Höhen hoch. Ein weich gescrollter Ankersprung durch diesen
+   * Bereich lässt die Seite sekundenlang eingefroren wirken.
    */
   scroll-behavior: auto;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   background: var(--color-paper);
   color: var(--color-ink);
-  font-family: var(--font-body), system-ui, sans-serif;
+  font-family: var(--font-grotesk), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-synthesis-weight: none;
 }
 
 h1, h2, h3, h4, .font-display {
-  font-family: var(--font-display), Georgia, serif;
+  font-family: var(--font-grotesk), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /* Kernregel des Systems: Display-Größen laufen auf Gewicht 400.
+     Autorität entsteht über Größe, nicht über Fettung. */
   font-weight: 400;
 }
 
 .font-label {
-  font-family: var(--font-label), system-ui, sans-serif;
+  font-family: var(--font-grotesk), "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+/* Der Bestand nutzte eine kursive Display-Variante. Die Grotesk kennt keine
+   sinnvolle Kursive — hier wird daraus eine getrackte Kapitälchen-Auszeichnung. */
 .font-display-italic {
-  font-family: var(--font-display), Georgia, serif;
-  font-style: italic;
+  font-family: var(--font-grotesk), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-style: normal;
   font-weight: 400;
 }
 
 ::selection {
-  background: var(--color-signal);
+  background: var(--color-ink);
   color: var(--color-paper);
 }
 
-.eyebrow {
-  font-family: var(--font-label), system-ui, sans-serif;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  font-size: 0.75rem;
+:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   Eigene Klassen liegen bewusst in @layer components.
+   Ohne Layer wäre `.pill { display: inline-flex }` eine gewöhnliche Klasse mit
+   derselben Spezifität wie Tailwinds `.hidden` — und würde sie per Quellreihen-
+   folge schlagen. Ergebnis: `hidden xl:inline-flex` bliebe wirkungslos und die
+   Telefon-Pill stünde auch auf dem Handy in der Kopfzeile. Im components-Layer
+   gewinnen Utilities zuverlässig.
+   ========================================================================== */
+
+@layer components {
+
+/* --------------------------------------------------------------------------
+   Typografie-Stufen
+   Größen fluid, aber an den Token-Ankern ausgerichtet.
+   Tracking zieht mit der Größe an: -0.05em im Display, +0.015em in der Caption.
+   -------------------------------------------------------------------------- */
+
+.t-display {
+  font-size: clamp(3.5rem, 13vw, 150px);
+  line-height: 0.93;
+  letter-spacing: -0.05em;
+  font-weight: 400;
+}
+
+.t-heading-lg {
+  font-size: clamp(2.25rem, 5.2vw, 50px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-weight: 400;
+}
+
+.t-heading {
+  font-size: clamp(2rem, 4.6vw, 46px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-weight: 400;
+}
+
+.t-heading-sm {
+  font-size: clamp(1.6rem, 3.4vw, 35px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+}
+
+.t-subheading {
+  font-size: clamp(1.25rem, 2vw, 23px);
+  line-height: 1.2;
+  letter-spacing: -0.017em;
   font-weight: 600;
 }
 
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+.t-body {
+  font-size: 18px;
+  line-height: 1.31;
+  letter-spacing: -0.004em;
 }
 
-.animate-marquee {
-  animation: marquee 22s linear infinite;
+.t-body-sm {
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: 0.005em;
+}
+
+.t-caption {
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: 0.015em;
+}
+
+/* Kleines Auszeichnungslabel über Sektionen. Schwarz — Rot bleibt
+   den Kategoriemarken und Sektionsnummern vorbehalten. */
+.eyebrow {
+  font-family: var(--font-grotesk), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+/* Redaktionelle Kategoriemarke — die einzige Stelle für Rot im Fließtext. */
+.tag-red {
+  color: var(--color-accent-ink);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.015em;
+}
+
+/* Sektionsnummer im Editorial-Duktus. */
+.sec-num {
+  color: var(--color-accent-ink);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Roter Text außerhalb der beiden Label-Klassen (Zitatzeichen, Leistennummer). */
+.accent-ink { color: var(--color-accent-ink); }
+
+/* Auf schwarzem Grund: Nummer weiß, Rot nur noch als vorangestellte Raute. */
+.sec-num--invert {
+  color: var(--color-paper);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.sec-num--invert::before {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 5px;
+  background: var(--color-accent);
+  transform: rotate(45deg);
+  flex: 0 0 auto;
+}
+
+/* ==========================================================================
+   Buttons — ausschließlich Pill: Kontur oder gefüllt. Nie farbig, nie Schatten.
+   ========================================================================== */
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--color-ink);
+  border-radius: var(--radius-pill);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  padding: 16px 20px;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.005em;
+  line-height: 1;
+  transition: background-color 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              color 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.pill:hover { background: var(--color-ink); color: var(--color-paper); }
+
+.pill-sm { padding: 10px 15px; font-size: 14px; }
+
+.pill-filled {
+  border-color: var(--color-ink);
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+.pill-filled:hover { background: var(--color-paper); color: var(--color-ink); }
+
+/* Auf schwarzem Grund kehrt sich die Kontur um. */
+.pill-invert {
+  border-color: var(--color-paper);
+  background: transparent;
+  color: var(--color-paper);
+}
+.pill-invert:hover { background: var(--color-paper); color: var(--color-ink); }
+
+/* ==========================================================================
+   Editorial-Hilfsklassen
+   ========================================================================== */
+
+/* Haarlinie als Spaltenregel — der einzige dekorative Strich im System. */
+.rule { height: 1px; background: var(--color-ink); border: 0; }
+.rule-muted { height: 1px; background: var(--color-pewter); border: 0; }
+
+/* Textlink mit Unterstreichungs-Wischer. */
+.ulink {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 2px;
+}
+.ulink::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 100%; height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: 100% 50%;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.ulink:hover::after { transform: scaleX(1); transform-origin: 0 50%; }
+
+/* Bilder sitzen roh auf der Seite: rechteckig, randlos, ohne Rundung. */
+.raw-img { border-radius: 0; display: block; }
+
+} /* Ende @layer components */
+
+/* ==========================================================================
+   Laufband
+   ========================================================================== */
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee { animation: marquee 26s linear infinite; }
+.marquee-host:hover .animate-marquee { animation-play-state: paused; }
+
+/* ==========================================================================
+   Reduzierte Bewegung
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -2,46 +2,33 @@
 
 import { useState } from "react";
 
-export default function MapEmbed({
-  query,
-  title,
-}: {
-  query: string;
-  title: string;
-}) {
+/*
+ * Karte lädt erst nach ausdrücklicher Zustimmung — vorher wird keine
+ * Verbindung zu Google aufgebaut.
+ */
+export default function MapEmbed({ query, title }: { query: string; title: string }) {
   const [consent, setConsent] = useState(false);
 
   if (!consent) {
     return (
-      <div className="relative flex aspect-[4/3] w-full flex-col items-center justify-center gap-4 rounded-3xl bg-mist p-8 text-center">
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" className="text-graphite">
-          <path
-            d="M12 21s-7-6.1-7-11a7 7 0 1 1 14 0c0 4.9-7 11-7 11Z"
-            stroke="currentColor"
-            strokeWidth="1.5"
-          />
-          <circle cx="12" cy="10" r="2.5" stroke="currentColor" strokeWidth="1.5" />
-        </svg>
-        <p className="max-w-xs text-sm leading-relaxed text-stone">
+      <div className="flex aspect-[16/10] w-full flex-col items-start justify-end gap-4 bg-newsprint p-6 sm:p-8">
+        <p className="t-body-sm max-w-[42ch] text-stone">
           Beim Laden der Karte wird eine Verbindung zu Google Maps hergestellt und Ihre IP-Adresse
           übertragen.
         </p>
-        <button
-          onClick={() => setConsent(true)}
-          className="rounded-full bg-graphite px-6 py-3 text-sm font-semibold text-paper transition hover:bg-ink"
-        >
-          Karte laden & zustimmen
+        <button onClick={() => setConsent(true)} className="pill pill-filled pill-sm">
+          Karte laden und zustimmen
         </button>
       </div>
     );
   }
 
   return (
-    <div className="aspect-[4/3] w-full overflow-hidden rounded-3xl">
+    <div className="aspect-[16/10] w-full overflow-hidden">
       <iframe
         title={title}
         src={`https://www.google.com/maps?q=${encodeURIComponent(query)}&output=embed`}
-        className="h-full w-full border-0"
+        className="h-full w-full border-0 grayscale"
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
       />
