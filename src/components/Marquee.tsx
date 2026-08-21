@@ -1,26 +1,38 @@
-// Läuft als schmales, gerades Schriftband über die volle Viewport-Breite (via
-// left-1/2 + w-screen "bleed" aus dem begrenzten Elternlayout ausgebrochen) —
-// der Textstreifen wird einmal dupliziert und per CSS-Keyframe (globals.css,
-// .animate-marquee) endlos nach links verschoben, sodass keine Lücke entsteht.
-export default function Marquee({ text, repeat = 6 }: { text: string; repeat?: number }) {
-  const items = Array.from({ length: repeat });
+/*
+ * Schriftband über die volle Breite. Der Streifen wird einmal dupliziert und
+ * per CSS-Keyframe endlos nach links geschoben, sodass keine Lücke entsteht.
+ * Beim Hover hält er an — die einzige Spielerei, die sich das System erlaubt.
+ */
+export default function Marquee({
+  items,
+  tone = "paper",
+}: {
+  items: string[];
+  tone?: "paper" | "ink";
+}) {
+  const group = (
+    <div className="flex shrink-0 items-center">
+      {items.map((item, i) => (
+        <span key={i} className="flex shrink-0 items-center whitespace-nowrap">
+          <span className="t-heading-sm px-6 sm:px-9">{item}</span>
+          {/* Trenner bewusst in Tinte, nicht in Rot: zwölf rote Rauten
+              gleichzeitig im Bild wären die Überdosis, die das System verbietet. */}
+          <span aria-hidden className="block h-[7px] w-[7px] rotate-45 bg-current opacity-70" />
+        </span>
+      ))}
+    </div>
+  );
 
   return (
-    <div className="pointer-events-none relative left-1/2 z-10 w-screen -translate-x-1/2 overflow-hidden border-y border-paper/70 py-3 mix-blend-difference">
+    <div
+      aria-hidden
+      className={`marquee-host overflow-hidden border-y py-5 sm:py-7 ${
+        tone === "ink" ? "border-paper/25 bg-ink text-paper" : "border-ink bg-paper text-ink"
+      }`}
+    >
       <div className="flex w-max animate-marquee">
-        {[0, 1].map((dup) => (
-          <div key={dup} className="font-label flex shrink-0 items-center">
-            {items.map((_, i) => (
-              <span
-                key={i}
-                className="mx-4 flex shrink-0 items-center gap-4 whitespace-nowrap text-sm font-semibold uppercase tracking-[0.3em] text-paper"
-              >
-                {text}
-                <span aria-hidden>✦</span>
-              </span>
-            ))}
-          </div>
-        ))}
+        {group}
+        {group}
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ export default function StandortePage() {
   return (
     <>
       <PageHero
-        eyebrow="// Einzugsgebiet"
+        eyebrow="Einzugsgebiet"
         title="Zuhause an der Elbe, im Einsatz im ganzen DACH-Raum."
         subline="Wählen Sie einen Standort und laden Sie die interaktive Karte, um sich die Anfahrt anzusehen."
         image={img.standorteHero}

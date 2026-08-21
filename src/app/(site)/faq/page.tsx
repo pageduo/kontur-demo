@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
-import FAQAccordion from "@/components/FAQAccordion";
+import FaqSection from "@/components/sections/FaqSection";
+import ContactSection from "@/components/sections/ContactSection";
 import { img } from "@/lib/images";
 
 export const metadata: Metadata = {
@@ -11,17 +12,15 @@ export default function FAQPage() {
   return (
     <>
       <PageHero
-        eyebrow="// Häufige Fragen"
+        eyebrow="Häufige Fragen"
+        number="08"
         title="Gut zu wissen, bevor es losgeht."
-        subline="Antworten auf die Fragen, die uns am häufigsten erreichen."
+        subline="Antworten auf die Fragen, die uns am häufigsten erreichen: Ablauf, Dauer, Kosten und Rechte."
         image={img.faqHero}
         imageAlt="Zwei Personen skizzieren gemeinsam an einem Whiteboard"
       />
-      <section className="bg-cream py-16 sm:py-24">
-        <div className="mx-auto max-w-4xl px-5 sm:px-8">
-          <FAQAccordion />
-        </div>
-      </section>
+      <FaqSection variant="page" />
+      <ContactSection variant="page" />
     </>
   );
 }
