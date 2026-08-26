@@ -63,20 +63,6 @@ export default function Hero() {
             <span className="sr-only">{company.fullName}</span>
           </h1>
 
-          {/* Um 90° gedrehtes zweites Wort — die Signatur des Eindhoven-Heros.
-              Erst ab lg, darunter fehlt schlicht die Höhe dafür. */}
-          <motion.div
-            aria-hidden
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.9, delay: 0.9 }}
-            className="pointer-events-none absolute right-8 top-32 hidden lg:block"
-          >
-            <span className="t-heading-lg block origin-bottom-right rotate-90 whitespace-nowrap text-[clamp(2rem,3.4vw,44px)] leading-none tracking-[-0.03em] text-stone">
-              Studio &mdash; Hamburg
-            </span>
-          </motion.div>
-
           {/* Aussage, Fließtext, Aktionen */}
           <div className="col-span-12 flex flex-col gap-7 lg:col-span-5">
             <motion.h2
@@ -114,7 +100,23 @@ export default function Hero() {
 
           {/* Bildblock: rechteckiger Beschnitt, randlos, ohne Rundung —
               als Teil der Typokomposition, nicht als Banner daneben. */}
-          <div className="col-span-12 lg:col-span-6 lg:col-start-7">
+          <div className="relative col-span-12 lg:col-span-6 lg:col-start-7">
+            {/* Um 90° gedrehtes zweites Wort — die Signatur des Heros. Es sitzt
+                in der leeren Gutterspalte direkt links neben dem Bild und ist
+                oben auf dessen Kante ausgerichtet. Dadurch klammert es Typo-
+                und Bildblock zusammen, statt frei über dem Kopfbereich zu
+                schweben und dort mit Menü- und Statusleiste zu kollidieren.
+                Erst ab lg, darunter fehlt die Breite dafür. */}
+            <motion.span
+              aria-hidden
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.9, delay: 0.9 }}
+              className="pointer-events-none absolute right-full top-0 mr-5 hidden whitespace-nowrap text-[clamp(1.25rem,1.9vw,26px)] leading-none tracking-[-0.03em] text-stone [writing-mode:vertical-rl] lg:block"
+            >
+              Studio &mdash; Hamburg
+            </motion.span>
+
             <motion.figure
               initial={{ clipPath: "inset(0 0 100% 0)" }}
               animate={{ clipPath: "inset(0 0 0% 0)" }}
