@@ -13,6 +13,14 @@ import { img } from "@/lib/images";
 export default function ServicesSection({ variant = "home" }: { variant?: "home" | "page" }) {
   const shown = variant === "home" ? services.slice(0, 3) : services;
 
+  /*
+   * Auf der Startseite steht ueber diesem Block der Sektionskopf mit seinem h2,
+   * dort ist h3 die richtige Stufe. Auf der Einzelseite entfaellt dieser Kopf,
+   * dann folgt der Block direkt auf das h1 der Seite und uebersprunge sonst
+   * eine Gliederungsstufe.
+   */
+  const CardHeading = variant === "page" ? "h2" : "h3";
+
   return (
     <Section id="leistungen" label="Leistungen" number="03" tone="paper">
       {variant === "home" && (
@@ -46,7 +54,7 @@ export default function ServicesSection({ variant = "home" }: { variant?: "home"
                 <span className="t-caption text-stone">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="t-subheading">{service.title}</h3>
+                <CardHeading className="t-subheading">{service.title}</CardHeading>
               </div>
               <p className="t-body-sm mt-3 text-stone">{service.description}</p>
             </article>

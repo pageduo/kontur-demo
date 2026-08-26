@@ -64,9 +64,11 @@ export default function GalleryGrid() {
                   />
                 </div>
                 <p className="tag-red mt-5">{item.category}</p>
-                <h3 className="t-subheading mt-2 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1">
+                {/* h2, nicht h3: das Raster laeuft nur auf /referenzen und
+                    folgt dort direkt auf das h1 des Seitenkopfs. */}
+                <h2 className="t-subheading mt-2 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1">
                   {item.title}
-                </h3>
+                </h2>
                 <p className="t-body-sm mt-2 line-clamp-3 text-stone">{item.description}</p>
                 <p className="t-caption mt-3 text-stone">{item.year}</p>
               </Link>

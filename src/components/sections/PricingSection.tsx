@@ -9,6 +9,15 @@ import { pricingTiers } from "@/lib/content";
  * sondern eine schwarze Fläche — Kontrast statt Akzentton.
  */
 export default function PricingSection({ variant = "home" }: { variant?: "home" | "page" }) {
+
+  /*
+   * Auf der Startseite steht ueber diesem Block der Sektionskopf mit seinem h2,
+   * dort ist h3 die richtige Stufe. Auf der Einzelseite entfaellt dieser Kopf,
+   * dann folgt der Block direkt auf das h1 der Seite und uebersprunge sonst
+   * eine Gliederungsstufe.
+   */
+  const TierHeading = variant === "page" ? "h2" : "h3";
+
   return (
     <Section id="preise" label="Preise" number="07" tone="gray">
       {variant === "home" && (
@@ -34,7 +43,7 @@ export default function PricingSection({ variant = "home" }: { variant?: "home" 
               }`}
             >
               <div className="flex items-baseline justify-between gap-4">
-                <h3 className="t-subheading">{tier.title}</h3>
+                <TierHeading className="t-subheading">{tier.title}</TierHeading>
                 {tier.highlighted && (
                   <span className="t-caption rounded-[500px] border border-paper px-3 py-1">
                     Meistgewählt

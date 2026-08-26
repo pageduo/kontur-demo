@@ -9,7 +9,7 @@ export default function ResetConsentButton() {
         window.localStorage.removeItem(COOKIE_CONSENT_KEY);
         window.location.reload();
       }}
-      className="rounded-full border border-ink/20 px-5 py-2.5 text-sm font-medium text-ink transition hover:bg-mist"
+      className="pill pill-sm"
     >
       Cookie-Einwilligung zurücksetzen
     </button>

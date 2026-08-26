@@ -80,12 +80,14 @@ function StepText({
   active,
   title,
   description,
+  headingTag: Heading,
 }: {
   progress: MotionValue<number>;
   index: number;
   active: boolean;
   title: string;
   description: string;
+  headingTag: "h2" | "h3";
 }) {
   const first = index === 0;
   const last = index === STEP_COUNT - 1;
@@ -99,7 +101,7 @@ function StepText({
   return (
     <motion.div style={{ opacity, y }} className="absolute inset-0" aria-hidden={!active}>
       <p className="sec-num sec-num--invert">{stepLabel(index)}</p>
-      <h3 className="t-heading mt-4">{title}</h3>
+      <Heading className="t-heading mt-4">{title}</Heading>
       <p className="t-body mt-5 text-paper/75">{description}</p>
     </motion.div>
   );
@@ -142,7 +144,7 @@ function StepBar({
  * und ohne Scroll-Übernahme. Wer Bewegung reduziert hat, bekommt den lesbaren
  * Endzustand direkt untereinander gestellt.
  */
-function StaticSteps() {
+function StaticSteps({ headingTag: Heading }: { headingTag: "h2" | "h3" }) {
   return (
     <div className="mx-auto grid max-w-[1400px] gap-x-5 gap-y-14 px-5 pb-4 pt-6 sm:grid-cols-2 sm:px-8">
       {processSteps.map((step, i) => (
@@ -158,7 +160,7 @@ function StaticSteps() {
           </figure>
           <div>
             <p className="sec-num sec-num--invert">{stepLabel(i)}</p>
-            <h3 className="t-heading-sm mt-3">{step.title}</h3>
+            <Heading className="t-heading-sm mt-3">{step.title}</Heading>
             <p className="t-body mt-4 text-paper/75">{step.description}</p>
           </div>
         </div>
@@ -243,6 +245,13 @@ export default function ProcessScrolly({ variant = "home" }: { variant?: "home" 
     [reduced]
   );
 
+  /*
+   * Auf der Startseite steht ueber der Buehne der Sektionskopf mit seinem h2,
+   * dort ist h3 die richtige Stufe. Auf /prozess entfaellt dieser Kopf, die
+   * Buehne folgt direkt auf das h1 des Seitenkopfs.
+   */
+  const stepHeading = variant === "page" ? "h2" : "h3";
+
   const isLast = active === STEP_COUNT - 1;
 
   return (
@@ -267,7 +276,7 @@ export default function ProcessScrolly({ variant = "home" }: { variant?: "home" 
       </div>
 
       {reduced ? (
-        <StaticSteps />
+        <StaticSteps headingTag={stepHeading} />
       ) : (
         <div
           ref={containerRef}
@@ -288,10 +297,19 @@ export default function ProcessScrolly({ variant = "home" }: { variant?: "home" 
             ))}
 
             {/* Abdunklung: das System erlaubt Verläufe nur als Bildüberlagerung,
-                nicht als Flächendekoration. */}
+                nicht als Flächendekoration.
+
+                Zwei Fassungen, weil der Text die Achse wechselt. Ab lg steht er
+                in einer schmalen Spalte links, dort deckt ein Verlauf von links
+                nach rechts genau die Textseite ab und lässt das Bild rechts
+                atmen. Auf schmalen Schirmen läuft derselbe Text über die volle
+                Breite: der Verlauf läge dann quer dazu und die Zeilenenden
+                kämen auf dem hellsten Teil des Bildes zu liegen. Dort deckt
+                deshalb eine gleichmäßige Abdunklung. */}
+            <div aria-hidden className="absolute inset-0 z-[5] bg-black/55 lg:hidden" />
             <div
               aria-hidden
-              className="absolute inset-0 z-[5] bg-gradient-to-r from-black/85 via-black/55 to-black/20"
+              className="absolute inset-0 z-[5] hidden bg-gradient-to-r from-black/85 via-black/55 to-black/20 lg:block"
             />
 
             <div className="relative z-10 flex h-full flex-col justify-between py-24 sm:py-28">
@@ -315,6 +333,7 @@ export default function ProcessScrolly({ variant = "home" }: { variant?: "home" 
                       active={i === active}
                       title={step.title}
                       description={step.description}
+                      headingTag={stepHeading}
                     />
                   ))}
                 </div>
