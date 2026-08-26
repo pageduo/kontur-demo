@@ -213,6 +213,26 @@ h1, h2, h3, h4, .font-display {
   max-inline-size: min(100%, 27.5rem);
 }
 
+/* Gedrehte Wortmarke im Hero. Die Schriftgröße ist so bemessen, dass der
+   Schriftzug unten bündig mit der Kante des Bildes daneben abschließt.
+
+   Das Bild belegt 6 der 12 Rasterspalten im Format 4:3, seine Höhe ist damit
+   0.375 × Containerbreite − 31.5px. "Studio — Hamburg" ist in Inter Tight bei
+   -0.03em Laufweite das 7.73-fache der Schriftgröße lang — im Browser an der
+   echten Schrift gemessen, nicht geschätzt. Aufgelöst ergibt das die Formel
+   unten, die über alle Breiten hinweg konstant 99% der Bildhöhe hält.
+
+   Das fehlende Prozent ist Absicht: der Schriftzug schließt knapp innerhalb
+   der Kante ab statt exakt auf ihr, wo Rundung und Schriftrendering ihn sonst
+   um ein, zwei Pixel darüber hinausschieben könnten. */
+.hero-vertical-mark {
+  writing-mode: vertical-rl;
+  font-size: calc(min(4.8vw, 67.2px) - 4px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+}
+
 /* Kleines Auszeichnungslabel über Sektionen. Schwarz — Rot bleibt
    den Kategoriemarken und Sektionsnummern vorbehalten. */
 .eyebrow {

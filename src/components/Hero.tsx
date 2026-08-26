@@ -102,23 +102,21 @@ export default function Hero() {
               als Teil der Typokomposition, nicht als Banner daneben. */}
           <div className="relative col-span-12 lg:col-span-6 lg:col-start-7">
             {/* Um 90° gedrehtes zweites Wort — die Signatur des Heros. Es sitzt
-                in der leeren Gutterspalte direkt links neben dem Bild und ist
-                oben auf dessen Kante ausgerichtet. Dadurch klammert es Typo-
-                und Bildblock zusammen, statt frei über dem Kopfbereich zu
-                schweben und dort mit Menü- und Statusleiste zu kollidieren.
+                in der leeren Gutterspalte direkt links neben dem Bild, oben auf
+                dessen Kante ausgerichtet, und schließt unten bündig mit ihr ab.
+                Dadurch klammert es Typo- und Bildblock zusammen, statt frei
+                über dem Kopfbereich zu schweben und dort mit Menü- und
+                Statusleiste zu kollidieren.
 
-                Die Größe ist an der Bildhöhe bemessen: der Schriftzug ist rund
-                das 7,6-fache der Schriftgröße lang, das Bild bei voller
-                Containerbreite 493px hoch. Ab etwa 65px liefe er unten aus dem
-                Bild heraus, deshalb der Deckel bei 58px — das füllt die Kante
-                aus, ohne sie zu überschreiten. 4.2vw hält dasselbe Verhältnis
-                bis zum lg-Umbruch, darunter ist er ausgeblendet. */}
+                Die Rechnung hinter der Schriftgröße steht bei
+                .hero-vertical-mark in globals.css. Erst ab lg, darunter fehlt
+                die Breite dafür. */}
             <motion.span
               aria-hidden
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.9, delay: 0.9 }}
-              className="pointer-events-none absolute right-full top-0 mr-5 hidden whitespace-nowrap text-[clamp(2.25rem,4.2vw,58px)] leading-none tracking-[-0.03em] text-stone [writing-mode:vertical-rl] lg:block"
+              className="hero-vertical-mark pointer-events-none absolute right-full top-0 mr-5 hidden text-stone lg:block"
             >
               Studio &mdash; Hamburg
             </motion.span>
