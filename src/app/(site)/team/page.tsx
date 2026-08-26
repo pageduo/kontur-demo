@@ -19,7 +19,7 @@ export default function TeamPage() {
         image={img.teamHero}
         imageAlt="Team im Studio bei der Arbeit an Materialproben"
       />
-      <StudioSection variant="page" />
+      <StudioSection variant="page" showHead />
       <TeamSection variant="page" />
     </>
   );

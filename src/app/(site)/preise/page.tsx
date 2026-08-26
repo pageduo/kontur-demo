@@ -20,7 +20,7 @@ export default function PreisePage() {
         imageAlt="Verpackungsmuster und Materialproben nebeneinander"
       />
       <PricingSection variant="page" />
-      <FaqSection variant="page" />
+      <FaqSection variant="page" showHead />
     </>
   );
 }

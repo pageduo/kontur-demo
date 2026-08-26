@@ -12,9 +12,9 @@ export default function StandorteMap() {
   const current = locations[active];
 
   return (
-    <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1fr]">
-      <div className="flex flex-col gap-6">
-        <div className="relative aspect-[4/3] overflow-hidden bg-graphite-light">
+    <div className="grid grid-cols-1 gap-x-5 gap-y-10 lg:grid-cols-2">
+      <div className="flex flex-col gap-8">
+        <div className="relative aspect-[4/3] overflow-hidden bg-pewter">
           <AnimatePresence mode="sync">
             <motion.div
               key={active}
@@ -29,7 +29,7 @@ export default function StandorteMap() {
                 alt={current.name}
                 fill
                 sizes="(min-width: 1024px) 45vw, 100vw"
-                className="object-cover"
+                className="raw-img object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/10 to-transparent" />
             </motion.div>
@@ -37,38 +37,51 @@ export default function StandorteMap() {
 
           <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6">
             <div>
-              <span className="eyebrow text-signal-light">{current.area}</span>
-              <p className="mt-1 t-subheading text-paper">{current.name}</p>
+              <span className="eyebrow text-paper/70">{current.area}</span>
+              <p className="t-subheading mt-1 text-paper">{current.name}</p>
             </div>
             {current.isMain && (
-              <span className="t-caption shrink-0 rounded-[500px] border border-paper px-3 py-1">
+              <span className="t-caption shrink-0 rounded-[500px] border border-paper px-3 py-1 text-paper">
                 Hauptsitz
               </span>
             )}
           </div>
         </div>
 
-        <div className="font-label flex flex-col gap-2">
+        {/* Auswahl als Haarlinienliste statt als Rahmenkaesten: dieselbe Bauform
+            wie die FAQ und die Stellenliste. Der aktive Standort wird nicht
+            durch eine Flaeche markiert, sondern durch den roten Strich rechts. */}
+        <ul className="border-t border-ink">
           {locations.map((loc, i) => (
-            <button
-              key={loc.name}
-              onClick={() => setActive(i)}
-              className={`flex items-center justify-between border px-5 py-4 text-left transition ${
-                active === i ? "border-signal bg-cream" : "border-ink/10 hover:border-ink/25"
-              }`}
-            >
-              <span>
-                <span className="block t-body text-ink">{loc.name}</span>
-                <span className="text-xs text-stone">{loc.area}</span>
-              </span>
-              {loc.isMain && (
-                <span className="t-caption rounded-[500px] border border-ink px-3 py-1">
-                  Hauptsitz
+            <li key={loc.name} className="border-b border-ink">
+              <button
+                onClick={() => setActive(i)}
+                aria-pressed={active === i}
+                className="flex w-full items-center justify-between gap-4 py-4 text-left"
+              >
+                <span>
+                  <span className={`t-body block ${active === i ? "text-ink" : "text-stone"}`}>
+                    {loc.name}
+                  </span>
+                  <span className="t-caption mt-1 block text-stone">{loc.area}</span>
                 </span>
-              )}
-            </button>
+                <span className="flex shrink-0 items-center gap-3">
+                  {loc.isMain && (
+                    <span className="t-caption rounded-[500px] border border-ink px-3 py-1">
+                      Hauptsitz
+                    </span>
+                  )}
+                  <span
+                    aria-hidden
+                    className={`block h-px transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                      active === i ? "w-10 bg-accent" : "w-4 bg-ink"
+                    }`}
+                  />
+                </span>
+              </button>
+            </li>
           ))}
-        </div>
+        </ul>
 
         <AnimatePresence mode="wait">
           <motion.p
@@ -77,7 +90,7 @@ export default function StandorteMap() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.3 }}
-            className="text-sm leading-relaxed text-stone"
+            className="t-body-sm text-stone"
           >
             {current.description}
           </motion.p>
@@ -85,7 +98,7 @@ export default function StandorteMap() {
       </div>
 
       <div>
-        <p className="eyebrow mb-4 text-signal-dark">{"// Interaktive Karte"}</p>
+        <p className="eyebrow mb-4 text-stone">Interaktive Karte</p>
         <MapEmbed query={current.mapQuery} title={`Karte: ${current.name}`} />
       </div>
     </div>

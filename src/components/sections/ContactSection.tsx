@@ -7,10 +7,25 @@ import { company } from "@/lib/content";
  * Abschluss auf schwarzer Fläche — der stärkste Tonwechsel der Seite und
  * gleichzeitig der Übergang in den Footer.
  */
-export default function ContactSection({ variant = "home" }: { variant?: "home" | "page" }) {
+/*
+ * showHead trennt zwei Faelle, die vorher beide an der Variante hingen.
+ *
+ * Traegt die Sektion das Thema der Seite, kommt die Ueberschrift vom
+ * Seitenkopf und der Sektionskopf entfaellt, sonst stuende dasselbe zweimal
+ * untereinander. Steht die Sektion dagegen als Ergaenzung auf einer fremden
+ * Seite, hat sie ohne eigenen Kopf gar keine Ueberschrift mehr: auf /preise
+ * folgte auf die Preistabelle unvermittelt eine nackte Frageliste.
+ */
+export default function ContactSection({
+  variant = "home",
+  showHead = variant === "home",
+}: {
+  variant?: "home" | "page";
+  showHead?: boolean;
+}) {
   return (
     <Section id="kontakt" label="Kontakt" number="09" tone="ink">
-      {variant === "home" && (
+      {showHead && (
       <SectionHead
         number="09"
         eyebrow="Kontakt"

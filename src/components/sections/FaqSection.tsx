@@ -12,13 +12,28 @@ const EASE = [0.22, 1, 0.36, 1] as const;
  * FAQ als Liste mit Haarlinien. Kein Rahmen, keine Fläche, keine Rundung —
  * das Aufklappen ist die einzige Bewegung.
  */
-export default function FaqSection({ variant = "home" }: { variant?: "home" | "page" }) {
+/*
+ * showHead trennt zwei Faelle, die vorher beide an der Variante hingen.
+ *
+ * Traegt die Sektion das Thema der Seite, kommt die Ueberschrift vom
+ * Seitenkopf und der Sektionskopf entfaellt, sonst stuende dasselbe zweimal
+ * untereinander. Steht die Sektion dagegen als Ergaenzung auf einer fremden
+ * Seite, hat sie ohne eigenen Kopf gar keine Ueberschrift mehr: auf /preise
+ * folgte auf die Preistabelle unvermittelt eine nackte Frageliste.
+ */
+export default function FaqSection({
+  variant = "home",
+  showHead = variant === "home",
+}: {
+  variant?: "home" | "page";
+  showHead?: boolean;
+}) {
   const [open, setOpen] = useState<number | null>(0);
   const shown = variant === "home" ? faqs.slice(0, 4) : faqs;
 
   return (
     <Section id="faq" label="FAQ" number="08" tone="paper">
-      {variant === "home" && (
+      {showHead && (
       <SectionHead
         number="08"
         eyebrow="Häufige Fragen"

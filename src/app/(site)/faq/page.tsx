@@ -20,7 +20,7 @@ export default function FAQPage() {
         imageAlt="Zwei Personen skizzieren gemeinsam an einem Whiteboard"
       />
       <FaqSection variant="page" />
-      <ContactSection variant="page" />
+      <ContactSection variant="page" showHead />
     </>
   );
 }

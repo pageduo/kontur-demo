@@ -35,10 +35,25 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
  * Haltung des Studios plus Kennzahlen. Auf dem Grauband, damit der Wechsel
  * vom weißen Hero spürbar wird — der Tonwechsel ist im System der Trenner.
  */
-export default function StudioSection({ variant = "home" }: { variant?: "home" | "page" }) {
+/*
+ * showHead trennt zwei Faelle, die vorher beide an der Variante hingen.
+ *
+ * Traegt die Sektion das Thema der Seite, kommt die Ueberschrift vom
+ * Seitenkopf und der Sektionskopf entfaellt, sonst stuende dasselbe zweimal
+ * untereinander. Steht die Sektion dagegen als Ergaenzung auf einer fremden
+ * Seite, hat sie ohne eigenen Kopf gar keine Ueberschrift mehr: auf /preise
+ * folgte auf die Preistabelle unvermittelt eine nackte Frageliste.
+ */
+export default function StudioSection({
+  variant = "home",
+  showHead = variant === "home",
+}: {
+  variant?: "home" | "page";
+  showHead?: boolean;
+}) {
   return (
     <Section id="studio" label="Studio" number="02" tone="gray">
-      {variant === "home" && (
+      {showHead && (
       <SectionHead
         number="02"
         eyebrow="Haltung"

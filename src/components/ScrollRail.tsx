@@ -95,9 +95,23 @@ export default function ScrollRail() {
           const isActive = i === active;
           return (
             <li key={item.id} className="group flex items-center justify-end gap-3">
-              {/* Label erscheint beim Hover oder wenn aktiv */}
+              {/*
+                Label erscheint beim Hover oder wenn aktiv, aber erst ab 1620px
+                Fensterbreite.
+
+                Grund ist die Rechnung: der Inhalt sitzt in einem Container von
+                hoechstens 1400px mit 32px Innenabstand, seine rechte Kante liegt
+                also bei Fensterbreite/2 + 668. Die Leiste steht 20px vom rechten
+                Rand und wird mit Beschriftung 113px breit, ihre linke Kante
+                liegt damit bei Fensterbreite - 133. Beides trifft sich bei
+                1602px. Darunter lag die Beschriftung ueber dem Text: auf der
+                Kontaktseite schnitt sie mitten durch die Oeffnungszeiten.
+
+                Die Striche allein sind nur 11px breit und bleiben damit auch
+                auf schmaleren Schirmen im Seitenrand.
+              */}
               <span
-                className={`t-caption whitespace-nowrap transition-all duration-[400ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                className={`t-caption hidden whitespace-nowrap transition-all duration-[400ms] ease-[cubic-bezier(0.22,1,0.36,1)] min-[1620px]:block ${
                   isActive
                     ? "translate-x-0 opacity-100"
                     : "translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-70"
