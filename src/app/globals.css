@@ -204,13 +204,22 @@ h1, h2, h3, h4, .font-display {
   letter-spacing: 0.015em;
 }
 
-/* Gemeinsames Satzmaß für Sektions- und Seitenköpfe.
-   27.5rem entsprechen bei voller Containerbreite vier Rasterspalten, also
-   der Kante der siebten Spalte — dort endet auch der Inhaltsblock darunter.
-   Überschrift und Vorspann teilen sich dieses Maß, damit der Kopf einen
-   bündigen rechten Rand bekommt und keine Zeile darüber hinausschaut. */
+/* Gemeinsames Satzmaß für Sektions- und Seitenköpfe. Überschrift und
+   Vorspann teilen es sich, damit der Kopf einen bündigen rechten Rand bekommt
+   statt zwei verschiedene Kanten.
+
+   Das Maß sind vier Rasterspalten samt der drei Abstände dazwischen, exakt
+   gerechnet statt gerundet: eine Spalte ist (Containerbreite − 11 × 20px) / 12,
+   der Container ist min(1400px, 100vw) − 64px Innenabstand. Aufgelöst ergibt
+   das den calc() unten. Damit endet der Kopf genau an der Kante der siebten
+   Spalte, an der auch der Inhaltsblock darunter endet.
+
+   Das max() hält das Maß bei schmaleren Fenstern bei 26rem. Vier Spalten wären
+   dort nur noch gut 300px, und eine 50px-Überschrift bräche darin auf zwei
+   Wörter je Zeile um. Bündig ist das Ziel, aber nicht um den Preis einer
+   zerfallenen Überschrift. */
 .head-measure {
-  max-inline-size: min(100%, 27.5rem);
+  max-inline-size: min(100%, max(26rem, calc((min(1400px, 100vw) - 284px) / 3 + 60px)));
 }
 
 /* Gedrehte Wortmarke im Hero. Die Schriftgröße ist so bemessen, dass der
