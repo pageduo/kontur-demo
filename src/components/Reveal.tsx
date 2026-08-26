@@ -15,10 +15,23 @@ const riseVariants: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: EASE } },
 };
 
+/*
+ * Der Endzustand der Maske klemmt bewusst weit unterhalb der Unterkante.
+ * Grund: die Überschriften laufen mit line-height 1, die Schrift braucht aber
+ * rund 1.21em. Die Unterlängen von g, j, p, q ragen dadurch etwa 8% einer
+ * Zeile unter die Zeilenbox. Bei 50px sind das 4px, vorher gab -2% aber nur
+ * 1px frei, und genau darum wurden die Unterlängen gekappt.
+ *
+ * Der Prozentwert bezieht sich auf die Elementhöhe, der nötige Überstand
+ * dagegen auf eine einzelne Zeile. Der ungünstigste Fall ist deshalb die
+ * einzeilige Überschrift: dort sind 18% rund 9px bei 4px Bedarf. Bei mehr
+ * Zeilen wächst der Puffer von allein. Nach unten zu weit zu klemmen kostet
+ * nichts, weil unterhalb des Elements ohnehin nichts zu verbergen ist.
+ */
 const maskVariants: Variants = {
   hidden: { clipPath: "inset(0 0 100% 0)", y: 12 },
   visible: {
-    clipPath: "inset(0 0 -2% 0)",
+    clipPath: "inset(0 0 -18% 0)",
     y: 0,
     transition: { duration: 0.95, ease: EASE },
   },
