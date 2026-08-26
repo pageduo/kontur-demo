@@ -40,7 +40,7 @@ export default function ReferenzenPage() {
         className="bg-newsprint pt-20 sm:pt-28"
       >
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
-          <h2 className="t-heading-lg max-w-[16ch]">Was Kundinnen und Kunden sagen.</h2>
+          <h2 className="t-heading-lg head-measure">Was Kund:innen sagen.</h2>
         </div>
       </section>
       <Testimonials />

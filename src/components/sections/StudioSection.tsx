@@ -92,7 +92,7 @@ export default function StudioSection({ variant = "home" }: { variant?: "home" |
         <Reveal className="mt-16 border-t border-ink pt-8">
           <p className="t-body max-w-[60ch]">
             KONTUR wurde {company.founded} in {company.address.city} gegründet und arbeitet heute mit
-            neun Gestalterinnen und Gestaltern für Marken aus Food, Kosmetik, Haushalt und Lifestyle.
+            neun Gestalter:innen für Marken aus Food, Kosmetik, Haushalt und Lifestyle.
           </p>
         </Reveal>
       )}

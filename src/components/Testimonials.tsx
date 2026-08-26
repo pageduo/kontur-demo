@@ -18,6 +18,9 @@ export default function Testimonials() {
                     &bdquo;
                   </span>
                   {t.quote}
+                  <span aria-hidden className="accent-ink">
+                    &ldquo;
+                  </span>
                 </blockquote>
                 <figcaption className="t-caption mt-5 text-stone">
                   {t.name} &middot; {t.context}

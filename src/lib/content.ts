@@ -2,7 +2,6 @@ export const company = {
   name: "KONTUR",
   fullName: "KONTUR Studio für Produkt- & Verpackungsdesign",
   founded: 2013,
-  city: "Hamburg",
   claim: "Design mit Kante.",
   subline:
     "Produkt-, Verpackungs- und Markendesign für Unternehmen, die im Regal auffallen und in der Hand überzeugen wollen.",
@@ -75,24 +74,44 @@ export const processSteps = [
     title: "Kickoff & Analyse",
     description:
       "Wir sichten Markt, Zielgruppe und bestehende Markenwelt und definieren gemeinsam das kreative Briefing.",
+    detail:
+      "Wir starten mit einem halben Tag Workshop, im Studio oder bei Ihnen vor Ort. Darin klären wir, was das Produkt leisten muss, wer es im Regal in die Hand nimmt und woran Sie am Ende ablesen, ob das Projekt funktioniert hat. Parallel sehen wir uns die Kategorie an: welche Gestaltungscodes dort selbstverständlich sind, welche davon reine Gewohnheit sind und wo sich ohne Risiko ausbrechen lässt.",
+    result: "Schriftliches Briefing mit Zielbild, Wettbewerbsüberblick und abgestecktem Rahmen",
+    duration: "1 bis 2 Wochen",
+    contribution: "Ein halber Tag Workshop, Zugang zu vorhandenen Unterlagen",
   },
   {
     key: "konzept",
     title: "Konzept & Skizzen",
     description:
       "Aus ersten Moodboards und Handskizzen entstehen mehrere Gestaltungsrichtungen, die wir gemeinsam schärfen.",
+    detail:
+      "Aus dem Briefing entstehen zwei bis drei eigenständige Richtungen, nicht drei Varianten derselben Idee. Jede kommt als Moodboard, Handskizze und grober Aufriss, damit erkennbar ist, wohin sie führt. Wir legen sie nebeneinander und sagen dazu, welche wir empfehlen und aus welchem Grund. Sie entscheiden sich für eine Richtung, die übrigen legen wir dokumentiert ab.",
+    result: "Zwei bis drei ausgearbeitete Richtungen und eine gemeinsame Entscheidung",
+    duration: "2 bis 3 Wochen",
+    contribution: "Eine Feedbackrunde, Entscheidung für eine Richtung",
   },
   {
     key: "prototyp",
     title: "Gestaltung & Prototyp",
     description:
       "Die favorisierte Richtung wird verfeinert und als Handmuster oder 3D-Druck greifbar gemacht.",
+    detail:
+      "Die gewählte Richtung wird ausgearbeitet: Form, Farbe, Material, Typografie und alle Flächen, die später bedruckt werden. Sobald das Design steht, geht es in die Werkstatt im Haus und kommt als Handmuster oder 3D-Druck zurück. Erst daran zeigt sich, ob der Griff stimmt, ob sich die Schachtel gut öffnen lässt und ob die Schrift auf dem echten Material noch lesbar ist.",
+    result: "Ausgearbeitetes Design und ein greifbarer Prototyp aus der eigenen Werkstatt",
+    duration: "3 bis 6 Wochen",
+    contribution: "Prototyp prüfen, Korrekturen an einem Termin bündeln",
   },
   {
     key: "rollout",
     title: "Serienreife & Rollout",
     description:
       "Reinzeichnung, Druckdaten und Produktionsbegleitung bis zum fertigen Produkt im Regal.",
+    detail:
+      "Aus dem freigegebenen Entwurf werden Produktionsdaten: Reinzeichnung, Stanzkonturen, Farbprofile und Materialangaben, abgestimmt mit Ihrem Hersteller. Wir begleiten den ersten Andruck und prüfen ihn am Muster, weil Farbe auf Karton anders ausfällt als auf dem Bildschirm. Danach übergeben wir alle Dateien so sortiert, dass Sie damit auch ohne uns weiterarbeiten können.",
+    result: "Druckfertige Daten, geprüfter Andruck und vollständige Dateiübergabe",
+    duration: "2 bis 4 Wochen",
+    contribution: "Freigabe der Druckdaten, Kontakt zu Hersteller und Druckerei",
   },
 ] as const;
 
@@ -113,7 +132,7 @@ export const galleryProjects = [
     category: "Branding",
     year: 2024,
     description:
-      "Ein komplettes Markenrelaunch für eine Bio-Teemanufaktur: Wortmarke, Illustrationssystem und Verpackungsfamilie aus Graspapier.",
+      "Ein kompletter Markenrelaunch für eine Bio-Teemanufaktur: Wortmarke, Illustrationssystem und Verpackungsfamilie aus Graspapier.",
   },
   {
     slug: "loop-kuechenmaschine",
@@ -187,7 +206,7 @@ export const pricingTiers = [
     price: "auf Anfrage",
     description:
       "Laufende Zusammenarbeit als ausgelagertes Design-Team, für Marken mit regelmäßigem Sortiments- und Kampagnenbedarf.",
-    features: ["Fester Ansprechpartner im Studio", "Priorisierte Kapazität", "Quartalsweise Markenreview"],
+    features: ["Feste Ansprechperson im Studio", "Priorisierte Kapazität", "Quartalsweise Markenreview"],
     highlighted: false,
   },
 ] as const;
@@ -227,7 +246,7 @@ export const team = [
     key: "timo",
     name: "Timo Sievers",
     role: "Projektsteuerung & Client Services",
-    bio: "Ihr fester Ansprechpartner während der gesamten Projektlaufzeit.",
+    bio: "Ihre feste Ansprechperson während der gesamten Projektlaufzeit.",
   },
 ] as const;
 
@@ -296,7 +315,7 @@ export const jobs = [
     title: "Grafikdesigner:in Verpackung",
     type: "Vollzeit",
     description:
-      "Reinzeichnung, Druckvorstufe und Gestaltung von Verpackungsfamilien für wechselnde Kunden aus Food, Kosmetik und Lifestyle.",
+      "Reinzeichnung, Druckvorstufe und Gestaltung von Verpackungsfamilien für wechselnde Kund:innen aus Food, Kosmetik und Lifestyle.",
   },
   {
     title: "Praktikum Industrial Design",
@@ -336,6 +355,6 @@ export const locations = [
     isMain: false,
     mapQuery: "Deutschland",
     description:
-      "Für Workshops, Fotoshootings und Produktionsbegleitung sind wir regelmäßig auch bei Kunden und Herstellern im gesamten deutschsprachigen Raum vor Ort.",
+      "Für Workshops, Fotoshootings und Produktionsbegleitung sind wir regelmäßig auch bei Kund:innen und Herstellern im gesamten deutschsprachigen Raum vor Ort.",
   },
 ] as const;

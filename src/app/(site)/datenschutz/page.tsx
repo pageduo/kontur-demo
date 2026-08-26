@@ -34,7 +34,7 @@ export default function DatenschutzPage() {
           <section>
             <h2 className="mb-3 t-subheading text-ink">3. Schriftarten</h2>
             <p>
-              Die verwendeten Schriftarten (Instrument Serif, Space Grotesk, Inter) werden über{" "}
+              Die verwendete Schriftart (Inter Tight) wird über{" "}
               <code>next/font</code> lokal ausgeliefert. Es findet keine Verbindung zu
               Google-Servern statt, es werden keine Daten an Google übertragen.
             </p>

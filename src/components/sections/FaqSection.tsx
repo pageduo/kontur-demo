@@ -22,8 +22,8 @@ export default function FaqSection({ variant = "home" }: { variant?: "home" | "p
       <SectionHead
         number="08"
         eyebrow="Häufige Fragen"
-        title="Was Kundinnen und Kunden zuerst fragen."
-        action={variant === "home" ? { label: "Alle Fragen", href: "/faq" } : undefined}
+        title="Was Kund:innen zuerst fragen."
+        action={{ label: "Alle Fragen", href: "/faq" }}
       />
       )}
 
@@ -33,8 +33,8 @@ export default function FaqSection({ variant = "home" }: { variant?: "home" | "p
             {shown.map((faq, i) => {
               const isOpen = open === i;
               return (
-                <Reveal as="div" key={faq.question} delay={i * 0.05}>
-                  <li className="border-b border-ink">
+                <li key={faq.question} className="border-b border-ink">
+                  <Reveal delay={i * 0.05}>
                     <button
                       onClick={() => setOpen(isOpen ? null : i)}
                       aria-expanded={isOpen}
@@ -67,8 +67,8 @@ export default function FaqSection({ variant = "home" }: { variant?: "home" | "p
                         </motion.div>
                       )}
                     </AnimatePresence>
-                  </li>
-                </Reveal>
+                  </Reveal>
+                </li>
               );
             })}
           </ul>
