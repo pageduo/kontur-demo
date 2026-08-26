@@ -204,6 +204,15 @@ h1, h2, h3, h4, .font-display {
   letter-spacing: 0.015em;
 }
 
+/* Gemeinsames Satzmaß für Sektions- und Seitenköpfe.
+   27.5rem entsprechen bei voller Containerbreite vier Rasterspalten, also
+   der Kante der siebten Spalte — dort endet auch der Inhaltsblock darunter.
+   Überschrift und Vorspann teilen sich dieses Maß, damit der Kopf einen
+   bündigen rechten Rand bekommt und keine Zeile darüber hinausschaut. */
+.head-measure {
+  max-inline-size: min(100%, 27.5rem);
+}
+
 /* Kleines Auszeichnungslabel über Sektionen. Schwarz — Rot bleibt
    den Kategoriemarken und Sektionsnummern vorbehalten. */
 .eyebrow {

@@ -44,11 +44,11 @@ export default function PageHero({
 
           <div className="col-span-12 lg:col-span-9">
             <Reveal variant="mask">
-              <h1 className="t-heading-lg max-w-[18ch]">{title}</h1>
+              <h1 className="t-heading-lg head-measure">{title}</h1>
             </Reveal>
             {subline && (
               <Reveal delay={0.08}>
-                <p className="t-body mt-6 max-w-[54ch] text-stone">{subline}</p>
+                <p className="t-body head-measure mt-6 text-stone">{subline}</p>
               </Reveal>
             )}
             {children}

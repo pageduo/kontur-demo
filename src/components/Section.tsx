@@ -74,12 +74,12 @@ export function SectionHead({
 
       <div className="col-span-12 lg:col-span-9">
         <Reveal variant="mask">
-          <h2 className="t-heading-lg max-w-[16ch]">{title}</h2>
+          <h2 className="t-heading-lg head-measure">{title}</h2>
         </Reveal>
 
         {intro && (
           <Reveal delay={0.08}>
-            <p className={`t-body mt-6 max-w-[52ch] ${invert ? "text-paper/70" : "text-stone"}`}>
+            <p className={`t-body head-measure mt-6 ${invert ? "text-paper/70" : "text-stone"}`}>
               {intro}
             </p>
           </Reveal>
