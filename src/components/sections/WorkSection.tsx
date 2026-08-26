@@ -20,12 +20,8 @@ export default function WorkSection({ variant = "home" }: { variant?: "home" | "
         number="05"
         eyebrow="Referenzen"
         title="Arbeiten, die im Regal bestehen."
-        intro={
-          variant === "home"
-            ? "Ein Ausschnitt aus den letzten drei Jahren. Von der Kaffeetüte bis zur Küchenmaschine."
-            : "Acht Projekte aus Produktdesign, Verpackung, Branding und Editorial."
-        }
-        action={variant === "home" ? { label: "Alle Projekte", href: "/referenzen" } : undefined}
+        intro="Ein Ausschnitt aus den letzten drei Jahren. Von der Kaffeetüte bis zur Küchenmaschine."
+        action={{ label: "Alle Projekte", href: "/referenzen" }}
       />
       )}
 

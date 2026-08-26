@@ -12,13 +12,14 @@ export default function StandortePage() {
     <>
       <PageHero
         eyebrow="Einzugsgebiet"
+        number="11"
         title="Zuhause an der Elbe, im Einsatz im ganzen DACH-Raum."
         subline="Wählen Sie einen Standort und laden Sie die interaktive Karte, um sich die Anfahrt anzusehen."
         image={img.standorteHero}
         imageAlt="Backsteingebäude an der Elbe in Hamburg-Altona"
       />
       <section className="bg-paper py-16 sm:py-24">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
           <StandorteMap />
         </div>
       </section>

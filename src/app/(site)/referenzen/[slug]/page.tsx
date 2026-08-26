@@ -52,10 +52,10 @@ export default async function ProjectPage({
             </div>
             <div className="col-span-12 lg:col-span-9">
               <Reveal variant="mask">
-                <h1 className="t-heading-lg max-w-[16ch]">{project.title}</h1>
+                <h1 className="t-heading-lg head-measure">{project.title}</h1>
               </Reveal>
               <Reveal delay={0.08}>
-                <p className="t-body mt-6 max-w-[56ch] text-stone">{project.description}</p>
+                <p className="t-body head-measure mt-6 text-stone">{project.description}</p>
               </Reveal>
             </div>
           </div>

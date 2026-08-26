@@ -17,7 +17,7 @@ export default function LegalHero({ eyebrow, title }: { eyebrow: string; title: 
             <span className="eyebrow text-stone">{eyebrow}</span>
           </div>
           <div className="col-span-12 lg:col-span-9">
-            <h1 className="t-heading-lg max-w-[16ch]">{title}</h1>
+            <h1 className="t-heading-lg head-measure">{title}</h1>
             {/* Rot markiert hier den redaktionellen Hinweis — dieselbe Rolle
                 wie eine Kategoriemarke, kein UI-Element. */}
             <div className="mt-8 border-l-2 border-accent pl-5">

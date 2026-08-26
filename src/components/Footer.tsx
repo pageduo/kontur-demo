@@ -76,9 +76,9 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="/datenschutz#cookies" className="t-body-sm ulink block py-2 text-paper/75">
+                <Link href="/datenschutz#cookies" className="t-body-sm ulink block py-2 text-paper/75">
                   Cookie-Einstellungen
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

@@ -17,7 +17,7 @@ export default function PricingSection({ variant = "home" }: { variant?: "home" 
         eyebrow="Investition"
         title="Drei Wege, mit uns zu arbeiten."
         intro="Jedes Projekt bekommt ein individuelles Angebot. Diese Rahmen geben Ihnen vorab eine belastbare Größenordnung."
-        action={variant === "home" ? { label: "Preise im Detail", href: "/preise" } : undefined}
+        action={{ label: "Preise im Detail", href: "/preise" }}
       />
       )}
 
@@ -42,7 +42,7 @@ export default function PricingSection({ variant = "home" }: { variant?: "home" 
                 )}
               </div>
 
-              <p className={`t-heading-sm mt-4 ${tier.highlighted ? "" : ""}`}>{tier.price}</p>
+              <p className="t-heading-sm mt-4">{tier.price}</p>
 
               <p className={`t-body-sm mt-4 ${tier.highlighted ? "text-paper/70" : "text-stone"}`}>
                 {tier.description}

@@ -14,12 +14,8 @@ export default function TeamSection({ variant = "home" }: { variant?: "home" | "
         number="06"
         eyebrow="Team"
         title="Neun Leute, ein Tisch, kurze Wege."
-        intro={
-          variant === "home"
-            ? "Wer an Ihrem Projekt arbeitet, sitzt im selben Haus wie die Werkstatt. Sie sprechen mit den Gestaltenden, nicht mit einer Zwischenebene."
-            : "Das Kernteam des Studios. Für jedes Projekt gibt es eine feste Ansprechperson, die von Kickoff bis Rollout dabeibleibt."
-        }
-        action={variant === "home" ? { label: "Das ganze Team", href: "/team" } : undefined}
+        intro="Wer an Ihrem Projekt arbeitet, sitzt im selben Haus wie die Werkstatt. Sie sprechen mit den Gestaltenden, nicht mit einer Zwischenebene."
+        action={{ label: "Das ganze Team", href: "/team" }}
       />
       )}
 

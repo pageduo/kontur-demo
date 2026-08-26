@@ -25,6 +25,18 @@ export default function Header() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [menuPath, setMenuPath] = useState(pathname);
+
+  /*
+   * Routenwechsel schließt das Overlay. Die Anpassung passiert beim Rendern
+   * statt in einem Effekt: React verwirft den angefangenen Durchlauf sofort
+   * und rendert direkt neu, statt erst das offene Menü zu committen und es
+   * anschließend wieder zuzuklappen. Genau dafür ist dieses Muster gedacht.
+   */
+  if (menuPath !== pathname) {
+    setMenuPath(pathname);
+    setMenuOpen(false);
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -48,11 +60,6 @@ export default function Header() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [menuOpen]);
-
-  // Route schließt das Overlay
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
 
   return (
     <>

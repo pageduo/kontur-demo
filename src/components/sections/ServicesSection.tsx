@@ -20,12 +20,8 @@ export default function ServicesSection({ variant = "home" }: { variant?: "home"
         number="03"
         eyebrow="Leistungen"
         title="Vom ersten Strich bis ins Regal."
-        intro={
-          variant === "home"
-            ? "Strategie, Gestaltung und Prototyping unter einem Dach. Kein Weiterreichen an Dritte, keine Schnittstellenverluste."
-            : "Sechs Disziplinen, die im Studio ineinandergreifen. Die meisten Projekte kombinieren mehrere davon."
-        }
-        action={variant === "home" ? { label: "Alle sechs Leistungen", href: "/leistungen" } : undefined}
+        intro="Strategie, Gestaltung und Prototyping unter einem Dach. Kein Weiterreichen an Dritte, keine Schnittstellenverluste."
+        action={{ label: "Alle sechs Leistungen", href: "/leistungen" }}
       />
       )}
 

@@ -16,7 +16,7 @@ export default function ContactSection({ variant = "home" }: { variant?: "home" 
         eyebrow="Kontakt"
         title="Erzählen Sie uns von Ihrem Produkt."
         intro="Das Erstgespräch ist unverbindlich und kostenfrei. Wir sichten Produkt und Markt und geben eine erste Einschätzung zu Umfang und Investition."
-        action={variant === "home" ? { label: "Zum Kontaktformular", href: "/kontakt" } : undefined}
+        action={{ label: "Zum Kontaktformular", href: "/kontakt" }}
         invert
       />
       )}
