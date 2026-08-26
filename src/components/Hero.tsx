@@ -106,13 +106,19 @@ export default function Hero() {
                 oben auf dessen Kante ausgerichtet. Dadurch klammert es Typo-
                 und Bildblock zusammen, statt frei über dem Kopfbereich zu
                 schweben und dort mit Menü- und Statusleiste zu kollidieren.
-                Erst ab lg, darunter fehlt die Breite dafür. */}
+
+                Die Größe ist an der Bildhöhe bemessen: der Schriftzug ist rund
+                das 7,6-fache der Schriftgröße lang, das Bild bei voller
+                Containerbreite 493px hoch. Ab etwa 65px liefe er unten aus dem
+                Bild heraus, deshalb der Deckel bei 58px — das füllt die Kante
+                aus, ohne sie zu überschreiten. 4.2vw hält dasselbe Verhältnis
+                bis zum lg-Umbruch, darunter ist er ausgeblendet. */}
             <motion.span
               aria-hidden
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.9, delay: 0.9 }}
-              className="pointer-events-none absolute right-full top-0 mr-5 hidden whitespace-nowrap text-[clamp(1.25rem,1.9vw,26px)] leading-none tracking-[-0.03em] text-stone [writing-mode:vertical-rl] lg:block"
+              className="pointer-events-none absolute right-full top-0 mr-5 hidden whitespace-nowrap text-[clamp(2.25rem,4.2vw,58px)] leading-none tracking-[-0.03em] text-stone [writing-mode:vertical-rl] lg:block"
             >
               Studio &mdash; Hamburg
             </motion.span>
