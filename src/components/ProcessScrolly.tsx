@@ -274,7 +274,15 @@ export default function ProcessScrolly({ variant = "home" }: { variant?: "home" 
           style={{ height: `${100 + STEP_COUNT * STEP_TRAVEL_VH}svh` }}
           className="relative"
         >
-          <div className="sticky top-0 h-[100svh] overflow-hidden">
+          {/*
+             * data-scrolly nimmt die Bühne von der noscript-Regel in layout.tsx
+             * aus. Ihre Ebenen liegen gestapelt und leben davon, dass immer nur
+             * eine sichtbar ist. Würde die Regel hier alles auf opacity 1
+             * setzen, lägen alle vier Schritttexte übereinander. Ohne Skript
+             * bleibt die Bühne von selbst brauchbar: ausgeliefert wird Schritt
+             * 01 deckend, die übrigen auf 0.
+             */}
+          <div data-scrolly className="sticky top-0 h-[100svh] overflow-hidden">
             {processSteps.map((step, i) => (
               <StepImage key={step.key} progress={progress} index={i} src={img.process[i]} />
             ))}

@@ -143,7 +143,7 @@ export const galleryProjects = [
       "Formgebung und CMF-Konzept für eine kompakte Küchenmaschine mit Fokus auf Reparierbarkeit und Materialreduktion.",
   },
   {
-    slug: "steinhoff-weingueter",
+    slug: "steinhoff-weingut",
     title: "Weingut Steinhoff",
     category: "Editorial",
     year: 2023,

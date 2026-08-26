@@ -64,7 +64,7 @@ export const img = {
     // Gebürstete Metallkante — CMF-Konzept eines Geräts.
     "loop-kuechenmaschine": [unsplash("1635800199270-128c26680ed5")],
     // Druckmaschine — Etikettenserie in Produktion.
-    "steinhoff-weingueter": [unsplash("1581508512961-0e3b9524db40")],
+    "steinhoff-weingut": [unsplash("1581508512961-0e3b9524db40")],
     // Keramikflasche auf grauem Grund — Tiegel- und Flaschensystem.
     "pure-skinlab-kosmetik": [unsplash("1523263889714-d345f8119047")],
     // Holzobjekt mit Deckel — Formholzserie mit Verpackung.

@@ -42,7 +42,29 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de" className={grotesk.variable}>
-      <body className="flex min-h-screen flex-col bg-paper text-ink antialiased">{children}</body>
+      <body className="flex min-h-screen flex-col bg-paper text-ink antialiased">
+        {/*
+          Die Einblendungen starten im versteckten Zustand: das Markup wird mit
+          opacity 0, einer Verschiebung oder einer geschlossenen Maske
+          ausgeliefert, und erst das Skript im Browser holt sie hervor. Laeuft
+          es nicht, bliebe der Inhalt dauerhaft unsichtbar. Betroffen waeren
+          gut sechzig Elemente, darunter alle grossen Ueberschriften.
+
+          Diese Regel setzt genau diese drei Eigenschaften zurueck, sobald
+          Skripte abgeschaltet sind. Sie greift ueber die Inline-Stile, deshalb
+          das !important. Die Platzhalter der Bildkomponente tragen keine der
+          drei Eigenschaften und bleiben unberuehrt.
+
+          Ausgenommen ist die gepinnte Prozessbuehne (data-scrolly). Ihre
+          Ebenen liegen gestapelt und leben davon, dass immer nur eine sichtbar
+          ist; pauschal aufgedeckt laegen dort vier Schritttexte uebereinander.
+          Sie kommt ohne Skript ohnehin zurecht und zeigt Schritt 01.
+        */}
+        <noscript>
+          <style dangerouslySetInnerHTML={{ __html: "[style*=\"opacity\"]:not([data-scrolly] *){opacity:1!important}[style*=\"transform\"]:not([data-scrolly] *){transform:none!important}[style*=\"clip-path\"]:not([data-scrolly] *){clip-path:none!important}" }} />
+        </noscript>
+        {children}
+      </body>
     </html>
   );
 }
