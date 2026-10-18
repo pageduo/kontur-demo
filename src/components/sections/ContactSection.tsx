@@ -39,9 +39,7 @@ export default function ContactSection({
       <div className="grid grid-cols-12 gap-x-5 gap-y-10">
         <Reveal className="col-span-12 sm:col-span-6 lg:col-span-3">
           <p className="eyebrow text-paper/55">Telefon</p>
-          <a href={company.phoneHref} className="t-subheading ulink mt-3 block">
-            {company.phone}
-          </a>
+          <span className="t-subheading mt-3 block">{company.phone}</span>
         </Reveal>
 
         <Reveal delay={0.06} className="col-span-12 sm:col-span-6 lg:col-span-4">

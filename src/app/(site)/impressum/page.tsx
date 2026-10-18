@@ -1,71 +1,57 @@
 import type { Metadata } from "next";
 import LegalHero from "@/components/LegalHero";
-import { company } from "@/lib/content";
+import DemoHinweis from "@/components/DemoHinweis";
+import { PAGEDUO_EMAIL, PAGEDUO_NAME, PAGEDUO_PARTNERS, PAGEDUO_URL } from "@/lib/pageduo";
 
 export const metadata: Metadata = {
-  title: "Impressum (Platzhalter) | KONTUR Demo",
+  title: "Impressum | KONTUR – Demo",
 };
 
+/*
+ * Das Impressum nennt den Anbieter dieser Website, und das ist nicht das
+ * dargestellte Studio - das gibt es nicht. Anbieter ist die Agentur, die die
+ * Demo betreibt. Die frueheren Abschnitte (fiktive Anschrift, USt-IdNr.,
+ * EU-Streitschlichtung) sind ersatzlos entfallen: Eine erfundene
+ * Pflichtangabe ist keine Pflichtangabe, sondern eine falsche Angabe.
+ */
 export default function ImpressumPage() {
   return (
     <>
       <LegalHero eyebrow="Rechtliches" title="Impressum" />
       <div className="mx-auto max-w-3xl px-5 py-16 sm:px-8">
+        <DemoHinweis className="mb-10" />
+
         <div className="flex flex-col gap-10 text-sm leading-relaxed text-stone">
           <section>
-            <h2 className="mb-3 t-subheading text-ink">Angaben gemäß § 5 DDG (Platzhalter)</h2>
+            <h2 className="t-subheading mb-3 text-ink">Anbieter dieser Website</h2>
             <p>
-              {company.fullName} (fiktiv)
+              {PAGEDUO_NAME} – Webdesign, Hamburg
               <br />
-              {company.address.street}
+              Vertreten durch die Gesellschafter {PAGEDUO_PARTNERS.replace(", ", " und ")}
               <br />
-              {company.address.zip} {company.address.city}
-              <br />
-              Deutschland
+              E-Mail:{" "}
+              <a href={`mailto:${PAGEDUO_EMAIL}`} className="ulink text-ink">
+                {PAGEDUO_EMAIL}
+              </a>
             </p>
           </section>
 
           <section>
-            <h2 className="mb-3 t-subheading text-ink">Kontakt</h2>
+            <a
+              href={`${PAGEDUO_URL}/impressum`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pill pill-filled"
+            >
+              Vollständiges Impressum von PageDuo →
+            </a>
+          </section>
+
+          <section>
+            <h2 className="t-subheading mb-3 text-ink">Bildnachweise</h2>
             <p>
-              Telefon: {company.phone}
-              <br />
-              E-Mail: {company.email}
-            </p>
-          </section>
-
-          <section>
-            <h2 className="mb-3 t-subheading text-ink">Vertretungsberechtigt</h2>
-            <p>Mara Lindqvist (fiktive Geschäftsführung, Platzhaltername)</p>
-          </section>
-
-          <section>
-            <h2 className="mb-3 t-subheading text-ink">Umsatzsteuer-Identifikationsnummer</h2>
-            <p>DE 000 000 000 (Platzhalter, keine reale USt-IdNr.)</p>
-          </section>
-
-          <section>
-            <h2 className="mb-3 t-subheading text-ink">
-              Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV
-            </h2>
-            <p>Mara Lindqvist, Anschrift wie oben (Platzhalter)</p>
-          </section>
-
-          <section>
-            <h2 className="mb-3 t-subheading text-ink">EU-Streitschlichtung</h2>
-            <p>
-              Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS)
-              bereit. Da dieses Unternehmen fiktiv ist, existiert hierzu kein realer Verweis. Eine
-              echte Kundenseite würde an dieser Stelle auf ec.europa.eu/consumers/odr verlinken.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="mb-3 t-subheading text-ink">Bildnachweise</h2>
-            <p>
-              Die auf dieser Demo-Website verwendeten Fotografien stammen von Unsplash-Fotograf:innen
-              und werden im Rahmen der Unsplash-Lizenz zu Demonstrationszwecken genutzt. Für eine
-              echte Kundenseite sind eigene oder lizenzierte Aufnahmen zu verwenden.
+              Die Fotografien dieser Demo stammen von Unsplash, im Rahmen der kostenfreien Lizenz
+              zu Demonstrationszwecken genutzt.
             </p>
           </section>
         </div>

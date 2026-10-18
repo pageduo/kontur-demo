@@ -7,8 +7,6 @@ import { overlayPages } from "@/lib/sections";
  * letztes Mal groß — im System ist die Typografie die Signatur, nicht ein Logo.
  */
 export default function Footer() {
-  const year = new Date().getFullYear();
-
   return (
     <footer className="bg-ink text-paper">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
@@ -50,9 +48,7 @@ export default function Footer() {
                 {company.address.zip} {company.address.city}
               </li>
               <li>
-                <a href={company.phoneHref} className="t-body-sm ulink block py-2">
-                  {company.phone}
-                </a>
+                <span className="t-body-sm block py-2">{company.phone}</span>
               </li>
               <li>
                 <a href={`mailto:${company.email}`} className="t-body-sm ulink block break-all py-2">
@@ -91,16 +87,20 @@ export default function Footer() {
           </span>
         </div>
 
-        <div className="flex flex-col gap-3 border-t border-paper/25 py-7 sm:flex-row sm:items-center sm:justify-between">
-          <p className="t-caption text-paper/50">
-            © {year} {company.fullName}
+        {/* Demo-Kennzeichnung: die letzte Zeile der Seite, auf jeder Seite */}
+        <div className="flex flex-col gap-2 border-t border-paper/25 py-7 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-3">
+          <p className="t-caption text-paper/60">
+            © {new Date().getFullYear()} · Demo-Vorlage von PageDuo – kein echtes Unternehmen.
+            Alle Namen, Daten und Inhalte sind fiktiv.
           </p>
-          <p className="t-caption text-paper/50">
-            Demo-Vorlage für Akquisezwecke &middot; kein echtes Unternehmen
+          <p className="t-caption flex gap-3 text-paper/60">
+            <Link href="/impressum" className="ulink">
+              Impressum
+            </Link>
+            <Link href="/datenschutz" className="ulink">
+              Datenschutz
+            </Link>
           </p>
-          <a href="/api/auth/logout" className="t-caption ulink text-paper/50">
-            Abmelden
-          </a>
         </div>
       </div>
     </footer>

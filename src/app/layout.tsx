@@ -16,7 +16,7 @@ const grotesk = Inter_Tight({
   display: "swap",
 });
 
-const title = "KONTUR Studio: Design mit Kante | Demo-Website";
+const title = "KONTUR Studio, Design mit Kante – Demo";
 const description =
   "Demo-Website für ein Produkt- und Verpackungsdesign-Studio in Hamburg: Produktdesign, Verpackungsdesign, Branding und Prototyping. Diese Seite ist eine Agentur-Demo und kein echtes Unternehmen.";
 

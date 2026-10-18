@@ -8,7 +8,7 @@ import { company, locations } from "@/lib/content";
 import { img } from "@/lib/images";
 
 export const metadata: Metadata = {
-  title: "Kontakt | KONTUR Demo",
+  title: "Kontakt | KONTUR – Demo",
 };
 
 export default function KontaktPage() {
@@ -45,9 +45,7 @@ export default function KontaktPage() {
               <div>
                 <p className="eyebrow text-stone">Direkt</p>
                 <p className="mt-3 flex flex-col gap-1">
-                  <a href={company.phoneHref} className="t-body ulink">
-                    {company.phone}
-                  </a>
+                  <span className="t-body">{company.phone}</span>
                   <a href={`mailto:${company.email}`} className="t-body ulink break-all">
                     {company.email}
                   </a>

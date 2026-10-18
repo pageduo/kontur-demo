@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import ScrollRail from "@/components/ScrollRail";
+import DemoBadge from "@/components/DemoBadge";
 
 /*
  * Der frühere CustomCursor ist bewusst entfernt: ein ersetzter Mauszeiger ist
@@ -16,6 +17,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       <main className="flex-1">{children}</main>
       <Footer />
       <CookieBanner />
+      <DemoBadge />
     </>
   );
 }

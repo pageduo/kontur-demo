@@ -142,7 +142,7 @@ export default function Hero() {
               transition={{ duration: 0.7, delay: 1.2 }}
               className="t-caption mt-3 flex justify-between gap-4 text-stone"
             >
-              <span>Studio Große Elbstraße</span>
+              <span>Studio Hauptsitz</span>
               <span>Hamburg-Altona</span>
             </motion.figcaption>
           </div>

@@ -12,7 +12,7 @@ import FaqSection from "@/components/sections/FaqSection";
 import ContactSection from "@/components/sections/ContactSection";
 
 export const metadata: Metadata = {
-  title: "KONTUR Studio: Design mit Kante | Demo-Website",
+  title: "KONTUR Studio, Design mit Kante – Demo",
 };
 
 /*

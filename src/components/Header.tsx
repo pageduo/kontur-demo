@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
+import DemoAction from "./DemoAction";
 import { company } from "@/lib/content";
 import { primarySections, overlayPages } from "@/lib/sections";
 
@@ -111,9 +112,9 @@ export default function Header() {
           </nav>
 
           <div className="flex shrink-0 items-center gap-2">
-            <a href={company.phoneHref} className="pill pill-sm hidden xl:inline-flex">
+            <DemoAction className="pill pill-sm hidden xl:inline-flex">
               {company.phone}
-            </a>
+            </DemoAction>
             <button
               onClick={() => setMenuOpen(true)}
               aria-expanded={menuOpen}
@@ -186,9 +187,7 @@ export default function Header() {
             </nav>
 
             <div className="mx-auto flex w-full max-w-[1400px] flex-wrap gap-x-10 gap-y-2 px-5 pb-10 text-[14px] text-paper/60 sm:px-8">
-              <a href={company.phoneHref} className="ulink">
-                {company.phone}
-              </a>
+              <span>{company.phone}</span>
               <a href={`mailto:${company.email}`} className="ulink">
                 {company.email}
               </a>

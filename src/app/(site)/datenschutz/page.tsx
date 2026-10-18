@@ -1,84 +1,67 @@
 import type { Metadata } from "next";
 import LegalHero from "@/components/LegalHero";
-import ResetConsentButton from "@/components/ResetConsentButton";
-import { company } from "@/lib/content";
+import DemoHinweis from "@/components/DemoHinweis";
+import { PAGEDUO_URL } from "@/lib/pageduo";
 
 export const metadata: Metadata = {
-  title: "Datenschutzerklärung (Platzhalter) | KONTUR Demo",
+  title: "Datenschutzerklärung | KONTUR – Demo",
 };
 
+/*
+ * Verantwortlich im Sinne der DSGVO ist, wer ueber die Verarbeitung
+ * entscheidet - hier die Agentur, nicht das erfundene Studio. Der fruehere
+ * Abschnitt zu Google Maps ist entfallen: Die Karte gibt es nicht mehr.
+ */
 export default function DatenschutzPage() {
   return (
     <>
       <LegalHero eyebrow="Rechtliches" title="Datenschutzerklärung" />
       <div className="mx-auto max-w-3xl px-5 py-16 sm:px-8">
+        <DemoHinweis className="mb-10" />
+
         <div className="flex flex-col gap-10 text-sm leading-relaxed text-stone">
           <section>
-            <h2 className="mb-3 t-subheading text-ink">1. Verantwortlicher</h2>
+            <h2 className="t-subheading mb-3 text-ink">Formulare und Buchung</h2>
             <p>
-              {company.fullName} (fiktiv), {company.address.street}, {company.address.zip}{" "}
-              {company.address.city}. E-Mail: {company.email}. Diese Angaben sind Platzhalter für
-              eine Demo-Website und beziehen sich auf kein reales Unternehmen.
+              Formulare und Buchungsfunktionen dieser Demo sind deaktiviert. Es werden keine
+              eingegebenen Daten übermittelt oder gespeichert. Für den technischen Betrieb dieser
+              Website gilt die Datenschutzerklärung von PageDuo:
             </p>
+            <a
+              href={`${PAGEDUO_URL}/datenschutz`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pill pill-filled mt-6"
+            >
+              Datenschutzerklärung von PageDuo →
+            </a>
+          </section>
+
+          <section id="cookies" className="scroll-mt-28">
+            <h2 className="t-subheading mb-3 text-ink">Cookies</h2>
+            <p>
+              Diese Demo setzt keine Cookies, bindet keine Karten ein und lädt beim Aufruf keine
+              Inhalte von Drittanbietern. Der Hinweisbalken am unteren Rand ist eine Demo-Ansicht:
+              Er zeigt, wie ein Einwilligungsbanner auf der fertigen Seite aussähe, und merkt sich
+              lediglich im Browser, dass Sie ihn geschlossen haben.
+            </p>
+            <a
+              href={`${PAGEDUO_URL}/cookies`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pill pill-filled mt-6"
+            >
+              Cookie-Hinweise von PageDuo →
+            </a>
           </section>
 
           <section>
-            <h2 className="mb-3 t-subheading text-ink">2. Hosting & Server-Logfiles</h2>
+            <h2 className="t-subheading mb-3 text-ink">Eingebundene Medien</h2>
             <p>
-              Diese Demo wird auf einer Vercel-Subdomain gehostet. Beim Aufruf der Seite werden
-              technisch notwendige Zugriffsdaten (u. a. IP-Adresse, Datum, aufgerufene Seite)
-              temporär verarbeitet, um die Auslieferung der Seite zu ermöglichen.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="mb-3 t-subheading text-ink">3. Schriftarten</h2>
-            <p>
-              Die verwendete Schriftart (Inter Tight) wird über{" "}
-              <code>next/font</code> lokal ausgeliefert. Es findet keine Verbindung zu
-              Google-Servern statt, es werden keine Daten an Google übertragen.
-            </p>
-          </section>
-
-          <section id="cookies">
-            <h2 className="mb-3 t-subheading text-ink">4. Cookies & Einwilligung</h2>
-            <p>
-              Diese Website verwendet ausschließlich technisch notwendige Cookies sowie einen
-              lokalen Speichereintrag (Local Storage), um Ihre Cookie-Auswahl zu merken. Für die
-              Einbindung der Google-Maps-Karten auf den Seiten „Kontakt“ und „Standorte“ fragen wir
-              vor dem Laden separat Ihre Zustimmung ab, da hierbei Ihre IP-Adresse an Google
-              übertragen wird.
-            </p>
-            <div className="mt-4">
-              <ResetConsentButton />
-            </div>
-          </section>
-
-          <section>
-            <h2 className="mb-3 t-subheading text-ink">5. Google Maps</h2>
-            <p>
-              Nach Ihrer Zustimmung wird eine Karte des Anbieters Google Ireland Limited eingebunden.
-              Dabei kann Google Daten wie Ihre IP-Adresse verarbeiten und ggf. in die USA
-              übertragen. Weitere Informationen finden Sie in der Datenschutzerklärung von Google.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="mb-3 t-subheading text-ink">6. Kontaktformular</h2>
-            <p>
-              Das Kontaktformular auf dieser Demo-Website versendet keine echten Daten. Es ist
-              rein zu Demonstrationszwecken funktionsfähig gestaltet. In einer echten Umsetzung
-              würden hier eingegebene Daten (Name, E-Mail, Nachricht) ausschließlich zur
-              Bearbeitung Ihrer Anfrage verarbeitet und nach Erledigung gelöscht.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="mb-3 t-subheading text-ink">7. Ihre Rechte</h2>
-            <p>
-              Ihnen stehen die Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung der
-              Verarbeitung, Datenübertragbarkeit sowie Widerspruch gegen die Verarbeitung Ihrer
-              personenbezogenen Daten nach Art. 15–21 DSGVO zu.
+              Die Fotos dieser Demo stammen von Unsplash, werden aber nicht von dort nachgeladen:
+              Sie laufen über den Bildserver dieser Website, Ihr Browser verbindet sich also mit
+              keinem Drittanbieter. Für eine echte Kundenseite werden sie durch eigenes Material
+              ersetzt.
             </p>
           </section>
         </div>

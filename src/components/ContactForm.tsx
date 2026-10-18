@@ -14,6 +14,8 @@ const fieldClass =
 export default function ContactForm() {
   const [sent, setSent] = useState(false);
 
+  // Nichts verlaesst den Browser: kein fetch, kein mailto, keine
+  // Speicherung. reset() leert die Felder.
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSent(true);
@@ -22,7 +24,7 @@ export default function ContactForm() {
   if (sent) {
     return (
       <div className="flex h-full flex-col justify-center border-t border-ink py-14">
-        <p className="t-heading-sm">Vielen Dank.</p>
+        <p className="t-heading-sm">Demo: Es wurden keine Daten übermittelt.</p>
         <p className="t-body mt-4 max-w-[46ch] text-stone">
           Dies ist eine Demo-Website ohne echten Formularversand. In der echten Umsetzung würde Ihre
           Anfrage jetzt im Studio eingehen und innerhalb eines Werktags beantwortet.
@@ -51,7 +53,7 @@ export default function ContactForm() {
             id="cf-mail"
             required
             type="email"
-            placeholder="name@unternehmen.de"
+            placeholder="name@beispiel.example"
             className={fieldClass}
           />
         </div>

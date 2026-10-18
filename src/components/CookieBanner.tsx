@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { PAGEDUO_URL } from "@/lib/pageduo";
 
 export const COOKIE_CONSENT_KEY = "kontur-demo-cookie-consent";
 export const COOKIE_CONSENT_EVENT = "kontur-demo-cookie-consent-change";
@@ -34,13 +35,24 @@ export default function CookieBanner() {
     // unten über die Seite legt — im System ist Kontrast die Erhebung.
     <div className="fixed inset-x-0 bottom-0 z-[90] border-t border-paper/25 bg-ink text-paper">
       <div className="mx-auto flex max-w-[1400px] flex-col gap-5 px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">
-        <p className="t-body-sm max-w-[70ch] text-paper/75">
-          Diese Demo-Website verwendet nur technisch notwendige Cookies. Für die Kartenanzeige
-          fragen wir separat Ihre Zustimmung ab.{" "}
-          <Link href="/datenschutz" className="ulink text-paper">
-            Datenschutzerklärung
-          </Link>
-        </p>
+        <div className="max-w-[70ch]">
+          <p className="t-caption mb-2 text-signal-red">Demo-Ansicht</p>
+          <p className="t-body-sm text-paper/75">
+            Diese Demo setzt keine Cookies. Dieser Balken zeigt nur, wie ein Einwilligungsbanner
+            auf der fertigen Seite aussähe.{" "}
+            <Link href="/datenschutz" className="ulink text-paper">
+              Datenschutzerklärung
+            </Link>{" "}
+            <a
+              href={`${PAGEDUO_URL}/cookies`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ulink text-paper"
+            >
+              Cookie-Hinweise von PageDuo
+            </a>
+          </p>
+        </div>
         <div className="flex shrink-0 gap-2">
           <button onClick={() => decide("declined")} className="pill pill-sm pill-invert">
             Ablehnen

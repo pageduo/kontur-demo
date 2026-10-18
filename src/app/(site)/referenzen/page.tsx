@@ -5,7 +5,7 @@ import Testimonials from "@/components/Testimonials";
 import { img } from "@/lib/images";
 
 export const metadata: Metadata = {
-  title: "Referenzen | KONTUR Demo",
+  title: "Referenzen | KONTUR – Demo",
 };
 
 export default function ReferenzenPage() {

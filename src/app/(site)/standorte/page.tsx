@@ -4,7 +4,7 @@ import StandorteMap from "@/components/StandorteMap";
 import { img } from "@/lib/images";
 
 export const metadata: Metadata = {
-  title: "Standorte | KONTUR Demo",
+  title: "Standorte | KONTUR – Demo",
 };
 
 export default function StandortePage() {

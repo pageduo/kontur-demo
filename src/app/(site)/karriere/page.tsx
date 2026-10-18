@@ -7,7 +7,7 @@ import { company, jobs } from "@/lib/content";
 import { img } from "@/lib/images";
 
 export const metadata: Metadata = {
-  title: "Karriere | KONTUR Demo",
+  title: "Karriere | KONTUR – Demo",
 };
 
 export default function KarrierePage() {

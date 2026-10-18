@@ -4,7 +4,7 @@ import ServicesSection from "@/components/sections/ServicesSection";
 import { img } from "@/lib/images";
 
 export const metadata: Metadata = {
-  title: "Leistungen | KONTUR Demo",
+  title: "Leistungen | KONTUR – Demo",
 };
 
 export default function LeistungenPage() {

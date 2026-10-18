@@ -5,7 +5,7 @@ import FaqSection from "@/components/sections/FaqSection";
 import { img } from "@/lib/images";
 
 export const metadata: Metadata = {
-  title: "Preise | KONTUR Demo",
+  title: "Preise | KONTUR – Demo",
 };
 
 export default function PreisePage() {

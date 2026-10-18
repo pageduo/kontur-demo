@@ -1,3 +1,5 @@
+import { DEMO_SLUG } from "./pageduo";
+
 export const company = {
   name: "KONTUR",
   fullName: "KONTUR Studio für Produkt- & Verpackungsdesign",
@@ -6,12 +8,21 @@ export const company = {
   subline:
     "Produkt-, Verpackungs- und Markendesign für Unternehmen, die im Regal auffallen und in der Hand überzeugen wollen.",
   usp: "Strategie, Gestaltung und Prototyping unter einem Dach, vom ersten Skizzenstrich bis zur serienreifen Verpackung.",
-  phone: "+49 40 555 891 30",
-  phoneHref: "tel:+494055589130",
-  email: "studio@kontur-demo.de",
+  /*
+   * Erfunden reicht nicht, erfunden muss auch unerreichbar sein. Die
+   * frueheren Werte (Grosse Elbstrasse 145, eine Hamburger Rufnummer, eine
+   * .de-Domain) sahen echt aus, weil sie echt aussehen sollten - und genau
+   * deshalb haetten sie irgendwann jemanden getroffen, den es wirklich gibt.
+   *
+   * `.example` ist nach RFC 2606 reserviert und wird nie vergeben, 20000 ist
+   * keine vergebene Postleitzahl, und die Rufnummer besteht aus Nullen. Sie
+   * steht ohne tel:-Link da, damit sie niemand versehentlich waehlt.
+   */
+  phone: "+49 (0)40 000 000-00",
+  email: `muster@${DEMO_SLUG}.example`,
   address: {
-    street: "Große Elbstraße 145",
-    zip: "22767",
+    street: "Musterstraße 1",
+    zip: "20000",
     city: "Hamburg",
   },
   hours: [
@@ -327,12 +338,14 @@ export const jobs = [
 
 export const locations = [
   {
-    name: "Studio Große Elbstraße",
+    name: "Studio Hauptsitz",
     area: "Hamburg-Altona",
     isMain: true,
-    mapQuery: "Große Elbstraße 145, 22767 Hamburg",
+    /* Nur die Stadt, nicht die erfundene Hausnummer: Ein Kartenlink auf eine
+       Adresse, die es nicht gibt, zeigt auf einen fremden Hauseingang. */
+    mapQuery: "Hamburg",
     description:
-      "Unser Hauptsitz mit Gestaltungsateliers, Materialbibliothek und Kundenlounge liegt direkt an der Elbe. Hier laufen alle Projekte zusammen.",
+      "Unser Hauptsitz mit Gestaltungsateliers, Materialbibliothek und Kundenlounge. Hier laufen alle Projekte zusammen.",
   },
   {
     name: "Modellbau-Werkstatt Bahrenfeld",

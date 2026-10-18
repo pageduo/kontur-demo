@@ -5,7 +5,7 @@ import TeamSection from "@/components/sections/TeamSection";
 import { img } from "@/lib/images";
 
 export const metadata: Metadata = {
-  title: "Team & Studio | KONTUR Demo",
+  title: "Team & Studio | KONTUR – Demo",
 };
 
 export default function TeamPage() {
